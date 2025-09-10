@@ -1,4 +1,5 @@
 import BlogSection from "@/components/BlogSection";
+import ContactSection from "@/components/ContactSection";
 import ProjectList from "@/components/ProjectList";
 import TechStack from "@/components/TechStack";
 import projects from "@/data/projects";
@@ -157,7 +158,10 @@ export default function Home() {
       <TechStack />
 
       {/* Blog */}
-      <BlogSection posts={blogPosts} />
+      <BlogSection />
+
+      {/* Contact */}
+      <ContactSection />
     </div>
   );
 }
