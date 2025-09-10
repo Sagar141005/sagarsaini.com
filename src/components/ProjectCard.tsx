@@ -20,7 +20,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
         <div
           className={`flex flex-col md:flex-row ${
             reverse ? "md:flex-row-reverse" : ""
-          } items-center gap-6 md:gap-12 py-6 px-4 md:px-0 rounded-xl transition hover:bg-neutral-100/30 dark:hover:bg-neutral-900/30`}
+          } items-center gap-6 md:gap-12 py-6 px-4 md:px-0 rounded-xl transition`}
         >
           <div className="w-full md:w-1/2 overflow-hidden rounded-xl shadow-sm group">
             <img
@@ -30,7 +30,11 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
             />
           </div>
 
-          <div className="w-full md:w-1/2 text-center md:text-left">
+          <div
+            className={`w-full md:w-1/2 text-center ${
+              reverse ? "md:text-right" : "md:text-left"
+            }`}
+          >
             <h2 className="text-2xl md:text-3xl font-bold text-zinc-800 dark:text-zinc-100">
               {title}
             </h2>

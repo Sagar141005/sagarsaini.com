@@ -1,14 +1,17 @@
 import ProjectCard from "@/components/ProjectCard";
-import { Brain } from "lucide-react";
+import ProjectList from "@/components/ProjectList";
+import TechStack from "@/components/TechStack";
+import projects from "@/data/projects";
 
 export default function Home() {
   return (
-    <div className="w-full max-w-3xl mx-auto min-h-screen px-4 py-18 bg-white dark:bg-[#09090B]">
+    <div className="w-full max-w-3xl mx-auto min-h-screen px-4 py-16 bg-white dark:bg-[#09090B]">
       {/* Profile Header */}
       <div className="flex items-center gap-6 pt-12">
         <img
+          loading="lazy"
           src="/profile.jpg"
-          alt="Profile photo"
+          alt="Sagar Saini's profile photo"
           className="size-32 sm:size-40 rounded-full ring-1 ring-border ring-offset-2 ring-offset-background select-none"
         />
         <div className="flex flex-col">
@@ -33,7 +36,7 @@ export default function Home() {
 
       {/* About Me */}
       <div className="mt-10 space-y-6">
-        <p className="text-lg font-light leading-relaxed text-[#616161] dark:text-neutral-400">
+        <p className="text-lg font-light leading-relaxed text-neutral-600 dark:text-neutral-400">
           I build modern web applications with{" "}
           <span className="font-medium text-zinc-900 dark:text-zinc-100">
             JavaScript, React, and Next.js
@@ -52,7 +55,7 @@ export default function Home() {
           </span>{" "}
           to push my learning further.
         </p>
-        <p className="text-lg font-light leading-relaxed text-[#616161] dark:text-neutral-400">
+        <p className="text-lg font-light leading-relaxed text-neutral-600 dark:text-neutral-400">
           I focus on{" "}
           <span className="font-medium dark:text-neutral-300">
             code quality, performance,
@@ -66,26 +69,13 @@ export default function Home() {
         <h2 className="text-4xl font-bold text-zinc-900 dark:text-zinc-50">
           Projects
         </h2>
-        <p className="text-md font-light leading-relaxed text-[#616161] dark:text-neutral-400 -mt-6">
+        <p className="text-md font-light leading-relaxed text-neutral-600 dark:text-neutral-400 -mt-6">
           A selection of things I’ve built — from full-stack apps to experiments
           with real-time collaboration, AI, and Web3.
         </p>
 
         {/* Project Card Component */}
-        <div className="flex flex-col gap-8">
-          <ProjectCard
-            title="CodeSphere"
-            image="codeSphere.png"
-            link="/project"
-          />
-
-          <ProjectCard
-            title="Career Hunt"
-            image="careerHunt.png"
-            link="/project"
-            reverse
-          />
-        </div>
+        <ProjectList projects={projects} />
       </div>
 
       {/* Upcoming Projects */}
@@ -114,7 +104,7 @@ export default function Home() {
               <h3 className="text-lg font-medium text-zinc-800 dark:text-zinc-100">
                 Project Y
               </h3>
-              <span className="text-xs px-2 py-1 rounded-full bg-yellow-100 text-yellow-700 dark:bg-yellow-800 dark:text-yellow-300">
+              <span className="text-xs px-2 py-1 rounded-full bg-zinc-200 text-zinc-700 dark:bg-zinc-700 dark:text-zinc-200">
                 Upcoming
               </span>
             </div>
@@ -125,6 +115,8 @@ export default function Home() {
           </div>
         </div>
       </div>
+      {/* Tech Stack / Toolkit */}
+      <TechStack />
     </div>
   );
 }
