@@ -1,7 +1,45 @@
-import ProjectCard from "@/components/ProjectCard";
+import BlogSection from "@/components/BlogSection";
 import ProjectList from "@/components/ProjectList";
 import TechStack from "@/components/TechStack";
 import projects from "@/data/projects";
+
+const blogPosts = [
+  {
+    title: "Two of My Projects Featured on OrcDev's YouTube Channel",
+    slug: "two-of-my-projects-featured-on-orcdev-s-youtube-channel",
+    date: "2025-09-06",
+    image:
+      "https://assets.chanhdai.com/images/blog/250906-two-of-my-projects-featured-on-orcdev-s-youtube-channel.webp?t=1757148696",
+  },
+  {
+    title: "Goblin Attacks",
+    slug: "two-of-my-projects-featured-on-orcdev-s-youtube-channel",
+    date: "2025-09-06",
+    image:
+      "https://images.unsplash.com/photo-1589302722335-ba4876f6a137?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+  },
+  {
+    title: "Two of My Projects Featured on OrcDev's YouTube Channel",
+    slug: "two-of-my-projects-featured-on-orcdev-s-youtube-channel",
+    date: "2025-09-06",
+    image:
+      "https://assets.chanhdai.com/images/blog/250906-two-of-my-projects-featured-on-orcdev-s-youtube-channel.webp?t=1757148696",
+  },
+  {
+    title: "Goblin Attacks",
+    slug: "two-of-my-projects-featured-on-orcdev-s-youtube-channel",
+    date: "2025-09-06",
+    image:
+      "https://images.unsplash.com/photo-1589302722335-ba4876f6a137?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+  },
+  {
+    title: "Goblin Attacks",
+    slug: "two-of-my-projects-featured-on-orcdev-s-youtube-channel",
+    date: "2025-09-06",
+    image:
+      "https://images.unsplash.com/photo-1589302722335-ba4876f6a137?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+  },
+];
 
 export default function Home() {
   return (
@@ -117,6 +155,9 @@ export default function Home() {
       </div>
       {/* Tech Stack / Toolkit */}
       <TechStack />
+
+      {/* Blog */}
+      <BlogSection posts={blogPosts} />
     </div>
   );
 }

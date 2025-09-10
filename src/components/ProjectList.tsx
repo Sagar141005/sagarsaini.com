@@ -52,7 +52,7 @@ const ProjectList: React.FC<ProjectListProps> = ({ projects }) => {
           href="/projects"
           className="mt-6 flex items-center justify-around"
         >
-          <span className="flex items-center gap-[0.5] px-4 py-1.5 text-sm font-semibold text-zinc-700 hover:text-zinc-950 dark:text-zinc-100 dark:hover:text-white border border-zinc-300 dark:border-zinc-600 hover:border-zinc-950 dark:hover:border-zinc-400 rounded-md transition-colors group">
+          <span className="flex items-center gap-[0.5] px-4 py-2 text-sm font-semibold text-zinc-700 hover:text-zinc-950 dark:text-zinc-100 dark:hover:text-white border border-zinc-300 dark:border-zinc-600 hover:border-zinc-950 dark:hover:border-zinc-400 rounded-md transition-colors group">
             View all projects{" "}
             <ChevronRight className="size-4 transition-transform group-hover:translate-x-0.5" />
           </span>
