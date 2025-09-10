@@ -24,9 +24,9 @@ const Navbar = () => {
         {/* Logo */}
         <Link
           href="/"
-          className="text-xl sm:text-2xl font-medium text-black dark:text-white"
+          className="text-xl sm:text-2xl font-extralight text-black dark:text-white"
         >
-          sagar
+          @sagarsaini
         </Link>
 
         {/* Desktop Nav */}

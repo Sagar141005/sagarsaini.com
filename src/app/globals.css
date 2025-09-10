@@ -44,4 +44,9 @@
 
 body {
   font-family: "IBM Plex Sans", sans-serif;
+  background-color: #ffffff;
+}
+
+.dark body {
+  background-color: #09090b;
 }

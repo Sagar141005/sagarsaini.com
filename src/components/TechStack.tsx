@@ -22,7 +22,7 @@ export default function TechStack() {
         The tools and technologies I work with regularly.
       </p>
 
-      <TooltipProvider delayDuration={0}>
+      <TooltipProvider delayDuration={50}>
         <div className="grid grid-cols-4 sm:grid-cols-6 md:grid-cols-8 gap-6 mt-4 items-center justify-items-center text-zinc-600 dark:text-zinc-300">
           {/* === Frontend === */}
           <TechIcon label="React" src="/react.svg" />
@@ -107,7 +107,7 @@ function TechIcon({ label, src, srcLight, srcDark }: TechIconProps) {
 
       <TooltipContent
         side="top"
-        className="bg-zinc-900 text-white px-6 py-2 mb-0.5 text-sm rounded-lg shadow-sm dark:bg-zinc-800"
+        className="bg-zinc-900 text-white px-6 py-2 mb-0.5 text-sm font-light rounded-lg shadow-sm dark:bg-zinc-800"
       >
         {label}
       </TooltipContent>

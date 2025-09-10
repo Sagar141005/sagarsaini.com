@@ -26,7 +26,7 @@ export default function Footer() {
         {/* Social Links */}
         <div className="flex flex-col font-light text-base items-start sm:items-end">
           <a
-            href="https://github.com/sagarsaini"
+            href="https://github.com/Sagar141005"
             target="_blank"
             rel="noopener noreferrer"
             className="flex items-center gap-1 text-neutral-500 dark:hover:text-[#FAFAFA] hover:text-black transition-colors duration-200"
@@ -34,7 +34,7 @@ export default function Footer() {
             GitHub <ArrowUpRight className="size-5" />
           </a>
           <a
-            href="https://linkedin.com/in/sagarsaini"
+            href="https://www.linkedin.com/in/sagar-saini-9b45a52b2/"
             target="_blank"
             rel="noopener noreferrer"
             className="flex items-center gap-1 text-neutral-500 dark:hover:text-[#FAFAFA] hover:text-black transition-colors duration-200"
@@ -42,7 +42,7 @@ export default function Footer() {
             LinkedIn <ArrowUpRight className="size-5" />
           </a>
           <a
-            href="https://twitter.com/sagarsaini"
+            href="https://x.com/not_sagar1410"
             target="_blank"
             rel="noopener noreferrer"
             className="flex items-center gap-1 text-neutral-500 dark:hover:text-[#FAFAFA] hover:text-black transition-colors duration-200"
@@ -53,7 +53,7 @@ export default function Footer() {
       </div>
 
       {/* Bottom Bar */}
-      <div className="pt-6 pb-12 text-center text-sm font-light text-neutral-500 dark:text-neutral-600">
+      <div className="pt-6 text-center text-sm font-light text-neutral-500 dark:text-neutral-600">
         © {new Date().getFullYear()} Sagar Saini. All rights reserved.
       </div>
     </footer>
