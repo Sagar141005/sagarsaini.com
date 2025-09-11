@@ -1,4 +1,5 @@
 @import "tailwindcss";
+@plugin "@tailwindcss/typography";
 
 @custom-variant dark (&:where(.dark, .dark *));
 
@@ -49,4 +50,106 @@ body {
 
 .dark body {
   background-color: #09090b;
+}
+
+.prose {
+  color: #27272a;
+  font-weight: 300;
+  line-height: 1.6;
+  font-size: 1rem;
+}
+
+.prose h1,
+.prose h2,
+.prose h3,
+.prose h4,
+.prose h5,
+.prose h6 {
+  color: #18181b;
+  font-weight: 600;
+  line-height: 1.3;
+  margin: 1.25em 0 0.75em;
+}
+
+.prose h1 {
+  font-size: 2.25rem;
+}
+
+.prose h2 {
+  font-size: 1.875rem;
+}
+
+.prose h3 {
+  font-size: 1.5rem;
+}
+
+.prose p {
+  margin: 0.75em 0;
+  font-weight: 300;
+  color: #52525b;
+}
+
+.prose a {
+  color: #09090b;
+  text-decoration: underline;
+  font-weight: 500;
+  transition: opacity 0.2s ease;
+}
+
+.prose a:hover {
+  opacity: 0.9;
+}
+
+.prose ul,
+.prose ol {
+  padding-left: 1.25rem;
+  margin: 0.75em 0;
+  color: #52525b;
+  font-weight: 300;
+}
+
+.prose li + li {
+  margin-top: 0.25em;
+}
+
+.prose code {
+  background-color: #e4e4e7;
+  padding: 0.2em 0.4em;
+  border-radius: 0.25rem;
+  font-family: monospace;
+  font-size: 0.875rem;
+  color: #27272a;
+}
+
+.dark .prose {
+  color: #d4d4d8;
+}
+
+.dark .prose h1,
+.dark .prose h2,
+.dark .prose h3,
+.dark .prose h4,
+.dark .prose h5,
+.dark .prose h6 {
+  color: #f4f4f5;
+}
+
+.dark .prose p,
+.dark .prose ul,
+.dark .prose ol {
+  color: #a1a1aa;
+}
+
+.dark .prose a {
+  color: #fafafa;
+  text-decoration: underline;
+}
+
+.dark .prose a:hover {
+  opacity: 0.85;
+}
+
+.dark .prose code {
+  background-color: #27272a;
+  color: #f4f4f5;
 }

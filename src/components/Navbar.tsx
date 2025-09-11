@@ -17,6 +17,18 @@ const Navbar = () => {
 
   const toggleMenu = () => setIsOpen(!isOpen);
 
+  const isLinkActive = (href: string) => {
+    if (href === "/projects") {
+      return pathname === "/projects" || pathname.startsWith("/project/");
+    }
+
+    if (href === "/blog") {
+      return pathname === "/blog" || pathname.startsWith("/blog/");
+    }
+
+    return pathname === href;
+  };
+
   return (
     <nav className="fixed top-0 w-full h-16 px-4 bg-white/80 dark:bg-black/80 backdrop-blur-sm ring-1 ring-black/10 dark:ring-white/10 z-50">
       <div className="max-w-3xl mx-auto flex items-center justify-between h-full">
@@ -35,7 +47,7 @@ const Navbar = () => {
               key={href}
               href={href}
               className={`text-sm font-light transition-colors ${
-                pathname === href
+                isLinkActive(href)
                   ? "text-black dark:text-white"
                   : "text-neutral-500 hover:text-black dark:hover:text-white"
               }`}
@@ -72,9 +84,9 @@ const Navbar = () => {
               <Link
                 key={href}
                 href={href}
-                onClick={() => setIsOpen(false)} // Close on click
+                onClick={() => setIsOpen(false)}
                 className={`text-sm font-light ${
-                  pathname === href
+                  isLinkActive(href)
                     ? "text-black dark:text-white"
                     : "text-neutral-600 dark:text-neutral-400 hover:text-black dark:hover:text-white"
                 }`}
