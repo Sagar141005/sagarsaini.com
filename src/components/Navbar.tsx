@@ -7,7 +7,6 @@ import { ArrowUpRight, Menu, X } from "lucide-react";
 import Theme from "./Theme";
 
 const links = [
-  { label: "About", href: "/about" },
   { label: "Projects", href: "/projects" },
   { label: "Blog", href: "/blog" },
 ];
@@ -37,7 +36,7 @@ const Navbar = () => {
               href={href}
               className={`text-sm font-light transition-colors ${
                 pathname === href
-                  ? "text-black dark:text-white font-medium"
+                  ? "text-black dark:text-white"
                   : "text-neutral-500 hover:text-black dark:hover:text-white"
               }`}
             >
@@ -76,7 +75,7 @@ const Navbar = () => {
                 onClick={() => setIsOpen(false)} // Close on click
                 className={`text-sm font-light ${
                   pathname === href
-                    ? "text-black dark:text-white font-medium"
+                    ? "text-black dark:text-white"
                     : "text-neutral-600 dark:text-neutral-400 hover:text-black dark:hover:text-white"
                 }`}
               >

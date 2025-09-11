@@ -2,13 +2,12 @@ import { ArrowUpRight } from "lucide-react";
 
 export default function Footer() {
   return (
-    <footer className="mt-24 bg-white dark:bg-[#09090B] border-t border-neutral-200 dark:border-neutral-800 select-none">
-      <div className="max-w-3xl mx-auto px-6 py-12 flex flex-col sm:flex-row justify-between gap-12">
+    <footer className="max-w-3xl mx-auto mt-24 mb-8 bg-white dark:bg-[#09090B] border-t border-neutral-200 dark:border-neutral-800 select-none">
+      <div className="px-6 py-12 flex flex-col sm:flex-row justify-between gap-12">
         {/* Navigation */}
         <ul className="space-y-3 font-light text-base">
           {[
             { label: "Home", href: "/" },
-            { label: "About", href: "/about" },
             { label: "Projects", href: "/projects" },
             { label: "Blog", href: "/blog" },
           ].map(({ label, href }) => (

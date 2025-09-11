@@ -4,18 +4,18 @@ import Link from "next/link";
 type ProjectCardProps = {
   title: string;
   image: string;
-  link: string;
+  slug: string;
   reverse?: boolean;
 };
 
 const ProjectCard: React.FC<ProjectCardProps> = ({
   title,
   image,
-  link,
+  slug,
   reverse = false,
 }) => {
   return (
-    <Link href={link}>
+    <Link href={`/project/${slug}`}>
       <div className="block">
         <div
           className={`flex flex-col md:flex-row ${

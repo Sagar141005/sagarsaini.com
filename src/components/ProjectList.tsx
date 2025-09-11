@@ -8,20 +8,25 @@ import { ChevronDown, ChevronRight } from "lucide-react";
 type Project = {
   title: string;
   image: string;
-  link: string;
+  slug: string;
 };
 
 type ProjectListProps = {
   projects: Project[];
+  showAllByDefault?: boolean;
 };
 
-const ProjectList: React.FC<ProjectListProps> = ({ projects }) => {
-  const [showAll, setShowAll] = useState(false);
+const ProjectList: React.FC<ProjectListProps> = ({
+  projects,
+  showAllByDefault = false,
+}) => {
+  const [showAll, setShowAll] = useState(showAllByDefault);
 
-  const visibleProjects = showAll ? projects : projects.slice(0, 2);
+  const totalProjects = showAllByDefault ? projects : projects.slice(0, 4);
+  const visibleProjects = showAll ? totalProjects : projects.slice(0, 2);
 
-  const showMoreButton = projects.length > 3 && !showAll;
-  const showViewAllLink = projects.length >= 6 && showAll;
+  const showMoreButton = !showAllByDefault && projects.length > 3 && !showAll;
+  const showViewAllLink = !showAllByDefault && projects.length >= 4 && showAll;
 
   return (
     <div className="flex flex-col gap-8">
@@ -30,7 +35,7 @@ const ProjectList: React.FC<ProjectListProps> = ({ projects }) => {
           key={project.title}
           title={project.title}
           image={project.image}
-          link={project.link}
+          slug={project.slug}
           reverse={i % 2 === 1}
         />
       ))}
