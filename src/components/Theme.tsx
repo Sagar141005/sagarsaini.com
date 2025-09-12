@@ -4,13 +4,21 @@ import { useEffect, useState } from "react";
 import { Sun, MoonStar } from "lucide-react";
 
 export default function ThemeToggle() {
-  const [isDark, setIsDark] = useState<boolean | null>(null);
+  const [isDark, setIsDark] = useState(false);
+  const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
+    setMounted(true);
+
     const root = document.documentElement;
     const savedTheme = localStorage.getItem("theme");
 
-    if (savedTheme === "dark") {
+    const prefersDark = window.matchMedia(
+      "(prefers-color-scheme: dark)"
+    ).matches;
+    const shouldUseDark = savedTheme === "dark" || (!savedTheme && prefersDark);
+
+    if (shouldUseDark) {
       root.classList.add("dark");
       setIsDark(true);
     } else {
@@ -20,7 +28,6 @@ export default function ThemeToggle() {
   }, []);
 
   const toggleTheme = () => {
-    if (isDark === null) return;
     const root = document.documentElement;
     const newTheme = isDark ? "light" : "dark";
 
@@ -38,7 +45,7 @@ export default function ThemeToggle() {
     sound.play().catch(console.warn);
   };
 
-  if (isDark === null) return null;
+  if (!mounted) return null;
 
   return (
     <button

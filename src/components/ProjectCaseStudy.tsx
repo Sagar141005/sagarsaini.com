@@ -1,7 +1,14 @@
 import React from "react";
 import Image from "next/image";
-import { ExternalLink, Github, AlertTriangle, CheckCircle } from "lucide-react";
+import {
+  Github,
+  AlertTriangle,
+  CheckCircle,
+  Globe,
+  ArrowLeft,
+} from "lucide-react";
 import { Project } from "@/data/projects";
+import Link from "next/link";
 
 type Props = {
   project: Project;
@@ -26,6 +33,14 @@ const ProjectCaseStudy: React.FC<Props> = ({ project }) => {
 
   return (
     <div className="w-full max-w-3xl mx-auto px-4 pt-16 space-y-12">
+      <Link
+        href="/projects"
+        className="inline-flex gap-1 items-center text-sm font-medium hover:underline font-mono text-zinc-500 hover:text-zinc-800 dark:text-zinc-400 dark:hover:text-white transition"
+      >
+        <ArrowLeft className="w-4 h-4" />
+        Projects
+      </Link>
+
       {/* Title */}
       <div>
         <h1 className="text-4xl sm:text-5xl font-bold text-zinc-900 dark:text-white">
@@ -60,7 +75,7 @@ const ProjectCaseStudy: React.FC<Props> = ({ project }) => {
               rel="noopener noreferrer"
               className="inline-flex items-center gap-2 px-4 py-2 bg-zinc-900 text-white dark:bg-white dark:text-black text-sm font-medium rounded-md hover:opacity-90 transition"
             >
-              <ExternalLink className="w-4 h-4" />
+              <Globe className="w-4 h-4" />
               Live Demo
             </a>
           )}

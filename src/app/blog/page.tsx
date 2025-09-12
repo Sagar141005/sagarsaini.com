@@ -1,5 +1,5 @@
 import BlogCard from "@/components/BlogCard";
-import blogPosts from "@/data/blogPosts"; // Update the path as needed
+import blogPosts from "@/data/blogPosts";
 
 export default function BlogPage() {
   return (

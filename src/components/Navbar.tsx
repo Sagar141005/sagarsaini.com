@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { usePathname } from "next/navigation";
 import { ArrowUpRight, Menu, X } from "lucide-react";
 import Theme from "./Theme";
@@ -13,6 +13,7 @@ const links = [
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const [mounted, setMounted] = useState(false);
   const pathname = usePathname();
 
   const toggleMenu = () => setIsOpen(!isOpen);
@@ -28,6 +29,12 @@ const Navbar = () => {
 
     return pathname === href;
   };
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
+  if (!mounted) return null;
 
   return (
     <nav className="fixed top-0 w-full h-16 px-4 bg-white/80 dark:bg-black/80 backdrop-blur-sm ring-1 ring-black/10 dark:ring-white/10 z-50">

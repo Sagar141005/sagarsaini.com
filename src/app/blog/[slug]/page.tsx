@@ -1,6 +1,8 @@
 import { notFound } from "next/navigation";
 import blogPosts, { BlogPost } from "@/data/blogPosts";
 import Image from "next/image";
+import Link from "next/link";
+import { ArrowLeft } from "lucide-react";
 
 export async function generateStaticParams() {
   return blogPosts.map((post) => ({
@@ -21,6 +23,14 @@ export default async function BlogPostPage({
   return (
     <div className="w-full max-w-3xl mx-auto px-4 pt-16">
       <article className="space-y-6">
+        <Link
+          href="/projects"
+          className="inline-flex gap-1 items-center text-sm font-medium hover:underline font-mono text-zinc-500 hover:text-zinc-800 dark:text-zinc-400 dark:hover:text-white transition"
+        >
+          <ArrowLeft className="w-4 h-4" />
+          Blog
+        </Link>
+
         <h1 className="text-4xl font-bold text-zinc-900 dark:text-white">
           {post.title}
         </h1>

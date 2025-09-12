@@ -52,6 +52,24 @@ body {
   background-color: #09090b;
 }
 
+::selection {
+  background: #09090b;
+  color: #f4f4f5;
+}
+::-moz-selection {
+  background: #09090b;
+  color: #f4f4f5;
+}
+
+html.dark ::selection {
+  background: #fff;
+  color: #18181b;
+}
+html.dark ::-moz-selection {
+  background: #fff;
+  color: #18181b;
+}
+
 .prose {
   color: #27272a;
   font-weight: 300;
