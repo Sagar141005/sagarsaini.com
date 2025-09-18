@@ -24,7 +24,7 @@ export default async function BlogPostPage({
     <div className="w-full max-w-3xl mx-auto px-4 pt-16">
       <article className="space-y-6">
         <Link
-          href="/projects"
+          href="/blog"
           className="inline-flex gap-1 items-center text-sm font-medium hover:underline font-mono text-zinc-500 hover:text-zinc-800 dark:text-zinc-400 dark:hover:text-white transition"
         >
           <ArrowLeft className="w-4 h-4" />
@@ -48,9 +48,7 @@ export default async function BlogPostPage({
         <img
           src={post.image}
           alt={post.title}
-          width={1200}
-          height={630}
-          className="rounded-xl border border-zinc-200 dark:border-zinc-800"
+          className="w-full h-96 rounded-xl border border-zinc-200 dark:border-zinc-800"
         />
         <div
           className="prose prose-lg max-w-none text-lg leading-relaxed dark:prose-invert"

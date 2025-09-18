@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react";
 import { Sun, MoonStar } from "lucide-react";
+import soundManager from "@/lib/sound-manager";
 
 export default function ThemeToggle() {
   const [isDark, setIsDark] = useState(false);
@@ -40,9 +41,7 @@ export default function ThemeToggle() {
     localStorage.setItem("theme", newTheme);
     setIsDark(newTheme === "dark");
 
-    const sound = new Audio("/sounds/click.mp3");
-    sound.volume = 0.5;
-    sound.play().catch(console.warn);
+    soundManager.playClick();
   };
 
   if (!mounted) return null;
