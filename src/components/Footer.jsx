@@ -33,7 +33,7 @@ export default function Footer() {
             GitHub <ArrowUpRight className="size-5" />
           </a>
           <a
-            href="https://www.linkedin.com/in/sagar-saini-9b45a52b2/"
+            href="https://www.linkedin.com/in/notsagarsaini"
             target="_blank"
             rel="noopener noreferrer"
             className="flex items-center gap-1 text-neutral-500 dark:hover:text-[#FAFAFA] hover:text-black transition-colors duration-200"

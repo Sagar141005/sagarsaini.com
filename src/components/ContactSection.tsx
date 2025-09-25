@@ -48,7 +48,7 @@ export default function ContactSection() {
           {/* Social Links */}
           <div className="flex gap-4 items-center pt-2 sm:pt-0">
             <a
-              href="https://linkedin.com/in/yourusername"
+              href="https://linkedin.com/in/notsagarsaini"
               target="_blank"
               rel="noopener noreferrer"
               className="text-zinc-600 dark:text-zinc-300 hover:text-blue-600 dark:hover:text-blue-400 transition"
@@ -58,7 +58,7 @@ export default function ContactSection() {
             </a>
 
             <a
-              href="https://twitter.com/yourusername"
+              href="https://x.com/not_sagar1410"
               target="_blank"
               rel="noopener noreferrer"
               className="text-zinc-600 dark:text-zinc-300 hover:text-sky-500 dark:hover:text-sky-400 transition"
