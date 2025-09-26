@@ -29,14 +29,16 @@ const ProjectList: React.FC<ProjectListProps> = ({
   const showViewAllLink = !showAllByDefault && projects.length >= 4 && showAll;
 
   return (
-    <div className="flex flex-col gap-8">
+    <div
+      className="grid grid-cols-1 sm:grid-cols-2
+     gap-8"
+    >
       {visibleProjects.map((project, i) => (
         <ProjectCard
           key={project.title}
           title={project.title}
           image={project.image}
           slug={project.slug}
-          reverse={i % 2 === 1}
         />
       ))}
 

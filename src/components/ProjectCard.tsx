@@ -5,41 +5,42 @@ type ProjectCardProps = {
   title: string;
   image: string;
   slug: string;
-  reverse?: boolean;
+  isNew?: boolean;
 };
 
 const ProjectCard: React.FC<ProjectCardProps> = ({
   title,
   image,
   slug,
-  reverse = false,
+  isNew = false,
 }) => {
   return (
-    <Link href={`/project/${slug}`}>
-      <div className="block">
-        <div
-          className={`flex flex-col md:flex-row ${
-            reverse ? "md:flex-row-reverse" : ""
-          } items-center gap-6 md:gap-12 py-6 px-4 md:px-0 rounded-xl transition`}
-        >
-          <div className="w-full md:w-1/2 overflow-hidden rounded-xl shadow-sm group">
-            <img
-              src={image}
-              alt={title}
-              className="w-full max-h-48 object-contain transform transition-transform duration-500 group-hover:scale-105"
-            />
-          </div>
+    <Link
+      href={`/project/${slug}`}
+      className="group flex flex-col gap-2 p-2 rounded-xl transition-colors hover:bg-zinc-50 dark:hover:bg-zinc-900"
+    >
+      <div className="relative overflow-hidden rounded-xl">
+        <img
+          src={image}
+          alt={title}
+          className="h-56 w-full object-cover transition-transform duration-300 group-hover:scale-[1.02] rounded-xl"
+        />
 
-          <div
-            className={`w-full md:w-1/2 text-center ${
-              reverse ? "md:text-right" : "md:text-left"
-            }`}
-          >
-            <h2 className="text-2xl md:text-3xl font-bold text-zinc-800 dark:text-zinc-100">
-              {title}
-            </h2>
-          </div>
-        </div>
+        {/* Subtle ring */}
+        <div className="pointer-events-none absolute inset-0 ring-1 ring-black/10 dark:ring-white/10 rounded-xl" />
+
+        {/* Optional "New" badge */}
+        {isNew && (
+          <span className="absolute top-2 right-2 rounded-md bg-blue-600/90 px-2 py-0.5 font-mono text-xs font-semibold text-white shadow-md">
+            New
+          </span>
+        )}
+      </div>
+
+      <div className="flex flex-col gap-1 px-1.5">
+        <h3 className="text-lg font-semibold leading-snug underline-offset-4 text-zinc-900 dark:text-zinc-100 transition-colors group-hover:underline text-balance">
+          {title}
+        </h3>
       </div>
     </Link>
   );
