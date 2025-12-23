@@ -23,11 +23,6 @@ const TooltipContent = React.forwardRef<
       {...props}
     >
       {props.children}
-
-      <TooltipPrimitive.Arrow
-        offset={0}
-        className="fill-primary h-2 w-4 -mt-1"
-      />
     </TooltipPrimitive.Content>
   </TooltipPrimitive.Portal>
 ));
