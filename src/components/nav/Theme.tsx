@@ -1,8 +1,9 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { Sun, MoonStar } from "lucide-react";
 import soundManager from "@/lib/sound-manager";
+import { MoonIcon } from "../svg/animated/Moon";
+import { SunIcon } from "../svg/animated/Sun";
 
 export default function ThemeToggle() {
   const [isDark, setIsDark] = useState(false);
@@ -46,17 +47,22 @@ export default function ThemeToggle() {
 
   if (!mounted) return null;
 
-  return (
-    <button
+  const commonClasses =
+    "p-2 rounded-lg hover:bg-muted text-primary cursor-pointer";
+
+  return isDark ? (
+    <MoonIcon
+      size={16}
       onClick={toggleTheme}
-      className="border border-[#E7E7E7] dark:border-[#27272a] p-1.5 rounded-full"
-      aria-label="Toggle Theme"
-    >
-      {isDark ? (
-        <MoonStar className="size-4 text-[#FAFAFA] transition-all" />
-      ) : (
-        <Sun className="size-4 text-[#09090B] transition-all" />
-      )}
-    </button>
+      className={commonClasses}
+      aria-label="Switch to light mode"
+    />
+  ) : (
+    <SunIcon
+      size={16}
+      onClick={toggleTheme}
+      className={commonClasses}
+      aria-label="Switch to dark mode"
+    />
   );
 }
