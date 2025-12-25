@@ -1,7 +1,7 @@
 "use client";
 
 import React from "react";
-import SectionHeading from "../common/ContentHeader";
+import ContentHeader from "../common/ContentHeader";
 import { motion } from "motion/react";
 
 export type ProjectStatus = "In Progress" | "Upcoming" | "Planned" | "On Hold";
@@ -40,7 +40,7 @@ export default function UpcomingProjects({ projects }: UpcomingProjectsProps) {
 
   return (
     <div className="mt-16 space-y-4">
-      <SectionHeading
+      <ContentHeader
         heading="What’s Next"
         subHeading="Ideas and experiments I’m currently working on."
       />
