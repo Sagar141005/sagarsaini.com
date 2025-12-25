@@ -144,7 +144,7 @@ export default function Hero() {
         </div>
       </motion.div>
 
-      <motion.div className="mt-8 space-y-6" variants={itemVariants}>
+      <motion.div className="mt-8 space-y-4" variants={itemVariants}>
         <h1 className="text-3xl sm:text-4xl font-bold text-foreground leading-tight">
           Full Stack Developer —{" "}
           <span className="text-secondary">
