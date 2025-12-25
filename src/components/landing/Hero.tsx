@@ -6,7 +6,6 @@ import Link from "next/link";
 import SkillBadge from "./SkillBadge";
 import SendIcon from "../svg/SendIcon";
 import ResumeIcon from "../svg/ResumeIcon";
-import Container from "../common/Container";
 
 const itemVariants = {
   hidden: { opacity: 0, y: 20, filter: "blur(5px)" },
@@ -79,9 +78,8 @@ const socials = [
 
 export default function Hero() {
   return (
-    <Container>
+    <section id="about">
       <motion.div
-        id="about"
         className="flex items-center gap-6 sm:gap-8 py-8 flex-wrap sm:flex-nowrap scroll-mt-24"
         variants={itemVariants}
       >
@@ -146,15 +144,15 @@ export default function Hero() {
         </div>
       </motion.div>
 
-      <motion.div className="mt-8 space-y-6 max-w-3xl" variants={itemVariants}>
-        <h1 className="text-4xl font-extrabold text-foreground">
+      <motion.div className="mt-8 space-y-6" variants={itemVariants}>
+        <h1 className="text-3xl sm:text-4xl font-bold text-foreground leading-tight">
           Full Stack Developer —{" "}
           <span className="text-secondary">
             building scalable web solutions.
           </span>
         </h1>
 
-        <div className="text-md sm:text-lg font-light leading-relaxed text-muted-foreground">
+        <p className="text-md sm:text-lg font-light leading-relaxed text-muted-foreground">
           I build scalable web apps with{" "}
           {skills.map((skill, index) => (
             <SkillBadge key={index} {...skill} />
@@ -164,7 +162,7 @@ export default function Hero() {
           user experience. Exploring{" "}
           <span className="font-medium text-foreground">AI</span> to build
           smarter solutions.
-        </div>
+        </p>
       </motion.div>
 
       <motion.div
@@ -185,6 +183,6 @@ export default function Hero() {
           </Button>
         </Link>
       </motion.div>
-    </Container>
+    </section>
   );
 }
