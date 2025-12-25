@@ -14,7 +14,7 @@ export default function ContentHeader({
 }: ContentHeaderProps) {
   return (
     <div
-      className={cn(size == "sm" && "space-y-2", size === "lg" && "space-y-4")}
+      className={cn(size == "sm" && "space-y-0", size === "lg" && "space-y-4")}
     >
       <h1
         className={cn(
