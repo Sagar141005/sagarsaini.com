@@ -10,11 +10,11 @@ import {
   DialogTitle,
   DialogTrigger,
 } from "@/components/ui/dialog";
-import { Button } from "./ui/button";
-import GithubIcon from "./svg/GithubIcon";
-import WebsiteIcon from "./svg/WebsiteIcon";
-import ArrowRightIcon from "./svg/ArrowRightIcon";
-import PlayIcon from "./svg/PlayIcon";
+import { Button } from "../ui/button";
+import GithubIcon from "../svg/GithubIcon";
+import WebsiteIcon from "../svg/WebsiteIcon";
+import ArrowRightIcon from "../svg/ArrowRightIcon";
+import PlayIcon from "../svg/PlayIcon";
 
 export type TechItem = {
   name: string;
