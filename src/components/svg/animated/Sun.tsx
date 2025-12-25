@@ -1,10 +1,8 @@
 "use client";
 
-import type { Variants } from "motion/react";
 import { motion, useAnimation } from "motion/react";
 import type { HTMLAttributes } from "react";
 import { forwardRef, useCallback, useImperativeHandle, useRef } from "react";
-
 import { cn } from "@/lib/utils";
 
 export interface SunIconHandle {
@@ -16,73 +14,83 @@ interface SunIconProps extends HTMLAttributes<HTMLDivElement> {
   size?: number;
 }
 
-// The 90-degree Swing (Spring physics makes it feel like a lever/switch)
-const svgVariants: Variants = {
-  normal: {
-    rotate: 0,
-  },
-  animate: {
-    rotate: 90,
-    transition: {
-      type: "spring",
-      stiffness: 300,
-      damping: 15,
-      mass: 1.2,
-    },
-  },
-};
-
-// The Pulse (Contracts then pops back)
-const circleVariants: Variants = {
-  normal: {
-    scale: 1,
-  },
-  animate: {
-    scale: [1, 0.6, 1], // Shrinks to 60%, then back to 100%
-    transition: {
-      duration: 0.4,
-      ease: "easeInOut",
-      times: [0, 0.4, 1], // Synced with the swing
-    },
-  },
-};
-
 const SunIcon = forwardRef<SunIconHandle, SunIconProps>(
   ({ onMouseEnter, onMouseLeave, className, size = 24, ...props }, ref) => {
-    const controls = useAnimation();
+    const rotateControls = useAnimation();
+    const pulseControls = useAnimation();
+
+    const rotationRef = useRef(0);
     const isControlledRef = useRef(false);
 
     useImperativeHandle(ref, () => {
       isControlledRef.current = true;
       return {
-        startAnimation: () => controls.start("animate"),
-        stopAnimation: () => controls.start("normal"),
+        startAnimation: () => {
+          rotationRef.current += 90;
+          rotateControls.start({
+            rotate: rotationRef.current,
+            transition: {
+              type: "spring",
+              stiffness: 300,
+              damping: 15,
+              mass: 1.2,
+            },
+          });
+          pulseControls.start({
+            scale: [1, 0.6, 1],
+            transition: {
+              duration: 0.4,
+              ease: "easeInOut",
+              times: [0, 0.4, 1],
+            },
+          });
+        },
+        stopAnimation: () => {},
       };
     });
 
     const handleMouseEnter = useCallback(
       (e: React.MouseEvent<HTMLDivElement>) => {
         if (!isControlledRef.current) {
-          controls.start("animate");
+          // Increment rotation by 90 degrees each time
+          rotationRef.current += 90;
+
+          // Trigger Rotation (Accumulative)
+          rotateControls.start({
+            rotate: rotationRef.current,
+            transition: {
+              type: "spring",
+              stiffness: 300,
+              damping: 15,
+              mass: 1.2,
+            },
+          });
+
+          // Trigger Pulse
+          pulseControls.start({
+            scale: [1, 0.6, 1], // Shrinks and returns
+            transition: {
+              duration: 0.4,
+              ease: "easeInOut",
+              times: [0, 0.4, 1],
+            },
+          });
         }
         onMouseEnter?.(e);
       },
-      [controls, onMouseEnter]
+      [rotateControls, pulseControls, onMouseEnter]
     );
 
     const handleMouseLeave = useCallback(
       (e: React.MouseEvent<HTMLDivElement>) => {
-        if (!isControlledRef.current) {
-          controls.start("normal");
-        }
         onMouseLeave?.(e);
       },
-      [controls, onMouseLeave]
+      [onMouseLeave]
     );
 
     return (
       <div
-        className={cn(className)}
+        className={cn("select-none", className)}
         onMouseEnter={handleMouseEnter}
         onMouseLeave={handleMouseLeave}
         {...props}
@@ -97,16 +105,14 @@ const SunIcon = forwardRef<SunIconHandle, SunIconProps>(
           strokeWidth="2"
           strokeLinecap="round"
           strokeLinejoin="round"
-          variants={svgVariants}
-          animate={controls}
+          animate={rotateControls} // Bound to the separate rotation controls
         >
           {/* Pulsing Center */}
           <motion.circle
             cx="12"
             cy="12"
             r="4"
-            variants={circleVariants}
-            animate={controls}
+            animate={pulseControls} // Bound to the separate pulse controls
           />
 
           {/* Rays (Rotate with the parent SVG) */}
