@@ -1,51 +1,28 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useTheme } from "next-themes";
 import soundManager from "@/lib/sound-manager";
 import { MoonIcon } from "../svg/animated/Moon";
 import { SunIcon } from "../svg/animated/Sun";
+import { cn } from "@/lib/utils";
+import { useEffect, useState } from "react";
 
 export default function ThemeToggle() {
-  const [isDark, setIsDark] = useState(false);
+  const { theme, setTheme, resolvedTheme } = useTheme();
   const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
     setMounted(true);
-
-    const root = document.documentElement;
-    const savedTheme = localStorage.getItem("theme");
-
-    const prefersDark = window.matchMedia(
-      "(prefers-color-scheme: dark)"
-    ).matches;
-    const shouldUseDark = savedTheme === "dark" || (!savedTheme && prefersDark);
-
-    if (shouldUseDark) {
-      root.classList.add("dark");
-      setIsDark(true);
-    } else {
-      root.classList.remove("dark");
-      setIsDark(false);
-    }
   }, []);
 
+  if (!mounted) return null;
+
+  const isDark = resolvedTheme === "dark";
+
   const toggleTheme = () => {
-    const root = document.documentElement;
-    const newTheme = isDark ? "light" : "dark";
-
-    if (newTheme === "dark") {
-      root.classList.add("dark");
-    } else {
-      root.classList.remove("dark");
-    }
-
-    localStorage.setItem("theme", newTheme);
-    setIsDark(newTheme === "dark");
-
+    setTheme(isDark ? "light" : "dark");
     soundManager.playClick();
   };
-
-  if (!mounted) return null;
 
   const commonClasses =
     "p-2 rounded-lg hover:bg-muted text-primary cursor-pointer";
