@@ -31,7 +31,7 @@ const ProjectList: React.FC<ProjectListProps> = ({ projects }) => {
   const hasMoreProjects = projects.length > 4;
 
   const cardVariants = {
-    hidden: { opacity: 0, y: 30 },
+    hidden: { opacity: 0, y: 50 },
     visible: {
       opacity: 1,
       y: 0,
