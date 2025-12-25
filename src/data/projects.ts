@@ -4,10 +4,12 @@ export type Project = {
   tagline: string;
   description: string;
   image: string;
+  video: string;
   overview: string;
   problem: string;
   goals: string[];
   techStack: { layer: string; tools: string }[];
+  highlightTech: string[];
   features: { title: string; description: string }[];
   challenges: { challenge: string; solution: string }[];
   upcomingFeatures: string[];
@@ -27,6 +29,7 @@ const projects: Project[] = [
     description:
       "A modern, browser-based IDE with real-time collaboration, Git-style commits, and AI assistance — built for developers who want VS Code-like power in the browser.",
     image: "/codeSphere.png",
+    video: "/new.MP4",
     overview:
       "CodeSphere is a browser-first IDE built with Next.js, TypeScript, and PostgreSQL. It enables developers to collaborate in real-time, manage commits with Git-style history, and leverage AI coding assistance — all inside the browser.",
     problem:
@@ -47,6 +50,13 @@ const projects: Project[] = [
       { layer: "Realtime", tools: "Socket.io" },
       { layer: "Editor", tools: "Monaco Editor" },
       { layer: "AI", tools: "OpenAI API" },
+    ],
+    highlightTech: [
+      "Next.js",
+      "TypeScript",
+      "PostgreSQL",
+      "Socket.io",
+      "OpenAI",
     ],
     features: [
       {
@@ -149,6 +159,7 @@ const projects: Project[] = [
     description:
       "A full-stack platform to manage job applications, generate AI-enhanced cover letters, and streamline hiring workflows for recruiters.",
     image: "/careerHunt.png",
+    video: "/new.MP4",
     overview:
       "Career Hunt is a job management platform designed for both job seekers and recruiters. It helps applicants track opportunities, improve resumes with AI, and auto-generate cover letters tailored to job descriptions — while giving recruiters a structured pipeline to organize candidates.",
     problem:
@@ -161,12 +172,13 @@ const projects: Project[] = [
       "Ensure data privacy and an intuitive UX for all users",
     ],
     techStack: [
-      { layer: "Frontend", tools: "Next.js, React, Tailwind" },
+      { layer: "Frontend", tools: "React, Tailwind" },
       { layer: "Backend", tools: "Node.js, Express" },
       { layer: "Database", tools: "MongoDB, Mongoose" },
       { layer: "AI", tools: "OpenAI GPT, Embeddings" },
       { layer: "Auth", tools: "NextAuth.js, OAuth, JWT" },
     ],
+    highlightTech: ["React", "MongoDB", "OpenAI", "Tailwind"],
     features: [
       {
         title: "Application Tracking",

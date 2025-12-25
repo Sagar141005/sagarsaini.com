@@ -1,6 +1,6 @@
 import projects from "@/data/projects";
 import { notFound } from "next/navigation";
-import ProjectCaseStudy from "@/components/ProjectCaseStudy";
+import ProjectCaseStudy from "@/components/project/ProjectCaseStudy";
 
 type Props = {
   params: { slug: string };

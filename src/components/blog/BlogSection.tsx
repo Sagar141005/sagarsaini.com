@@ -1,6 +1,7 @@
 import Link from "next/link";
-import BlogCard from "@/components/BlogCard";
-import { ChevronRight } from "lucide-react";
+import BlogCard from "@/components/blog/BlogCard";
+import { Button } from "../ui/button";
+import ChevronRightIcon from "../svg/ChevronRightIcon";
 
 type BlogPost = {
   title: string;
@@ -15,16 +16,7 @@ export default function BlogSection({ posts = [] }: { posts?: BlogPost[] }) {
   const hasMorePosts = posts.length > 4;
 
   return (
-    <section className="mt-20 space-y-6">
-      <h2 className="text-4xl font-bold text-zinc-900 dark:text-zinc-50">
-        Blog
-      </h2>
-
-      <p className="text-md font-light leading-relaxed text-neutral-600 dark:text-neutral-400 -mt-4">
-        Thoughts on web development, software engineering, and what I’m
-        learning.
-      </p>
-
+    <section id="blogs">
       {posts.length === 0 ? (
         <div className="mt-6 border border-dashed border-zinc-300 dark:border-zinc-700 rounded-xl p-8 text-center">
           <span className="text-sm font-medium text-zinc-500 dark:text-zinc-400">
@@ -44,14 +36,10 @@ export default function BlogSection({ posts = [] }: { posts?: BlogPost[] }) {
 
           {hasMorePosts && (
             <div className="flex justify-center mt-8">
-              <Link
-                href="/blog"
-                className="mt-6 flex items-center justify-around"
-              >
-                <span className="flex items-center gap-[0.5] px-4 py-2 text-sm font-semibold text-zinc-700 hover:text-zinc-950 dark:text-zinc-100 dark:hover:text-white border border-zinc-300 dark:border-zinc-600 hover:border-zinc-950 dark:hover:border-zinc-400 rounded-md transition-colors group">
-                  View all blogs{" "}
-                  <ChevronRight className="size-4 transition-transform group-hover:translate-x-0.5" />
-                </span>
+              <Link href="/blog" className="mt-6 group">
+                <Button variant="outline" className="text-primary">
+                  View all blogs <ChevronRightIcon />
+                </Button>
               </Link>
             </div>
           )}
