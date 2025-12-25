@@ -9,6 +9,7 @@ import {
 } from "@/components/ui/tooltip";
 import { cn } from "@/lib/utils";
 import { TooltipArrow } from "@radix-ui/react-tooltip";
+import { useTheme } from "next-themes";
 
 interface TechIconProps {
   label: string;
@@ -25,7 +26,11 @@ const TechIcon: React.FC<TechIconProps> = ({
   srcDark,
   className = "w-8 h-8",
 }) => {
-  const universalSrc = src || srcLight;
+  const { resolvedTheme } = useTheme();
+
+  const finalSrc = src ?? (resolvedTheme === "dark" ? srcDark : srcLight);
+
+  if (!finalSrc) return null;
 
   return (
     <Tooltip>
@@ -36,37 +41,13 @@ const TechIcon: React.FC<TechIconProps> = ({
             className
           )}
         >
-          {srcLight && srcDark ? (
-            <>
-              <div className="relative w-full h-full dark:hidden">
-                <Image
-                  src={srcLight}
-                  alt={label}
-                  fill
-                  className="object-contain"
-                />
-              </div>
-              <div className="relative w-full h-full hidden dark:block">
-                <Image
-                  src={srcDark}
-                  alt={label}
-                  fill
-                  className="object-contain"
-                />
-              </div>
-            </>
-          ) : (
-            universalSrc && (
-              <div className="relative w-full h-full">
-                <Image
-                  src={universalSrc}
-                  alt={label}
-                  fill
-                  className="object-contain"
-                />
-              </div>
-            )
-          )}
+          <Image
+            key={finalSrc}
+            src={finalSrc}
+            alt={label}
+            fill
+            className="object-contain"
+          />
         </div>
       </TooltipTrigger>
 
