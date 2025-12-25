@@ -74,6 +74,7 @@ const ProjectList: React.FC<ProjectListProps> = ({ projects }) => {
                   icon: (
                     <TechIcon
                       label={techName}
+                      src={config?.src}
                       srcLight={config?.srcLight}
                       srcDark={config?.srcDark}
                       className="w-6 h-6"
