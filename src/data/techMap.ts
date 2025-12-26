@@ -1,6 +1,8 @@
 export type TechConfig = {
-  srcLight: string;
+  src?: string;
+  srcLight?: string;
   srcDark?: string;
+  priority?: boolean;
 };
 
 export const TECH_ICONS: Record<string, TechConfig> = {
@@ -25,17 +27,17 @@ export const TECH_ICONS: Record<string, TechConfig> = {
     srcDark: "/tech/chatgpt-dark.svg",
   },
 
-  React: { srcLight: "/tech/react.svg" },
-  JavaScript: { srcLight: "/tech/js.svg" },
-  TypeScript: { srcLight: "/tech/typescript.svg" },
-  "Tailwind CSS": { srcLight: "/tech/tailwindcss.svg" },
-  Redux: { srcLight: "/tech/redux.svg" },
-  "Node.js": { srcLight: "/tech/nodejs.svg" },
-  MongoDB: { srcLight: "/tech/mongodb.svg" },
-  PostgreSQL: { srcLight: "/tech/postgre.svg" },
-  Supabase: { srcLight: "/tech/supabase.svg" },
-  Docker: { srcLight: "/tech/docker.svg" },
-  Git: { srcLight: "/tech/git.svg" },
+  React: { src: "/tech/react.svg" },
+  JavaScript: { src: "/tech/js.svg" },
+  TypeScript: { src: "/tech/typescript.svg" },
+  "Tailwind CSS": { src: "/tech/tailwindcss.svg" },
+  Redux: { src: "/tech/redux.svg" },
+  "Node.js": { src: "/tech/nodejs.svg" },
+  MongoDB: { src: "/tech/mongodb.svg" },
+  PostgreSQL: { src: "/tech/postgre.svg" },
+  Supabase: { src: "/tech/supabase.svg" },
+  Docker: { src: "/tech/docker.svg" },
+  Git: { src: "/tech/git.svg" },
 
   "Socket.io": {
     srcLight: "/tech/socketio-light.svg",
@@ -45,7 +47,7 @@ export const TECH_ICONS: Record<string, TechConfig> = {
     srcLight: "/tech/chatgpt-light.svg",
     srcDark: "/tech/chatgpt-dark.svg",
   },
-  "Monaco Editor": { srcLight: "/tech/monaco.svg" },
-  Mongoose: { srcLight: "/tech/mongoose.svg" },
-  "NextAuth.js": { srcLight: "/tech/nextauth.svg" },
+  "Monaco Editor": { src: "/tech/monaco.svg" },
+  Mongoose: { src: "/tech/mongoose.svg" },
+  "NextAuth.js": { src: "/tech/nextauth.svg" },
 };

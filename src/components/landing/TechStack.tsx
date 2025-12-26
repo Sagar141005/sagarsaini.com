@@ -39,7 +39,7 @@ export default function TechStack() {
           />
           <TechIcon label="Motion" src="/tech/motion.svg" />
 
-          <TechIcon label="MongoDB" src="/tech/mongodb.svg" />
+          <TechIcon label="MongoDB" src="/tech/mongodb.svg" priority />
           <TechIcon label="PostgreSQL" src="/tech/postgre.svg" />
           <TechIcon label="MySQL" src="/tech/mysql.svg" />
           <TechIcon
