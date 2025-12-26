@@ -77,6 +77,7 @@ const ProjectList: React.FC<ProjectListProps> = ({ projects }) => {
                       src={config?.src}
                       srcLight={config?.srcLight}
                       srcDark={config?.srcDark}
+                      priority={config?.priority}
                       className="w-6 h-6"
                     />
                   ),
