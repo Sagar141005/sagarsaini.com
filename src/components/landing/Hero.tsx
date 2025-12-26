@@ -1,11 +1,10 @@
 "use client";
 
-import { Button } from "@/components/ui/button";
 import { motion } from "motion/react";
 import Link from "next/link";
 import SkillBadge from "./SkillBadge";
-import SendIcon from "../svg/SendIcon";
-import ResumeIcon from "../svg/ResumeIcon";
+import { ArrowButton } from "../button/ArrowButton";
+import { ResumeButton } from "../button/ResumeButton";
 
 const itemVariants = {
   hidden: { opacity: 0, y: 20, filter: "blur(5px)" },
@@ -169,18 +168,11 @@ export default function Hero() {
         className="flex items-center gap-4 py-8"
         variants={itemVariants}
       >
-        <Link href="/resume">
-          <Button variant="outline" className="font-normal">
-            <ResumeIcon />
-            Resume
-          </Button>
-        </Link>
-
         <Link href="/contact">
-          <Button variant="default" className="font-normal">
-            <SendIcon />
-            Get in touch
-          </Button>
+          <ArrowButton>Get in Touch</ArrowButton>
+        </Link>
+        <Link href="/resume">
+          <ResumeButton variant="outline">Resume</ResumeButton>
         </Link>
       </motion.div>
     </section>
