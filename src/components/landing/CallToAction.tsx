@@ -43,7 +43,7 @@ export default function BookCallButton({ onClick }: { onClick: () => void }) {
               x: isHovered ? SPACING : 0,
               opacity: isHovered ? 1 : 0,
             }}
-            transition={{ type: "spring", stiffness: 200, damping: 25 }}
+            transition={{ type: "spring", stiffness: 250, damping: 25 }}
           >
             <PlusIcon className="w-3.5 h-3.5 text-primary-foreground/70" />
           </motion.div>
@@ -55,7 +55,7 @@ export default function BookCallButton({ onClick }: { onClick: () => void }) {
               x: isHovered ? SPACING * 2 : 0,
               opacity: isHovered ? 1 : 0,
             }}
-            transition={{ type: "spring", stiffness: 200, damping: 25 }}
+            transition={{ type: "spring", stiffness: 250, damping: 25 }}
           >
             <span className="text-[9px] font-extrabold text-accent-foreground">
               YOU
