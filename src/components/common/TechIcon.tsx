@@ -1,6 +1,6 @@
 "use client";
 
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Image from "next/image";
 import {
   Tooltip,
@@ -17,6 +17,7 @@ interface TechIconProps {
   srcLight?: string;
   srcDark?: string;
   className?: string;
+  priority?: boolean;
 }
 
 const TechIcon: React.FC<TechIconProps> = ({
@@ -25,8 +26,16 @@ const TechIcon: React.FC<TechIconProps> = ({
   srcLight,
   srcDark,
   className = "w-8 h-8",
+  priority,
 }) => {
   const { resolvedTheme } = useTheme();
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
+  if (!mounted || !resolvedTheme) return null;
 
   const finalSrc = src ?? (resolvedTheme === "dark" ? srcDark : srcLight);
 
@@ -46,6 +55,7 @@ const TechIcon: React.FC<TechIconProps> = ({
             src={finalSrc}
             alt={label}
             fill
+            priority={priority}
             className="object-contain"
           />
         </div>
