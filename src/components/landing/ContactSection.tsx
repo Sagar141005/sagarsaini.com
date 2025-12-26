@@ -10,7 +10,7 @@ import {
   DialogHeader,
   DialogTitle,
 } from "@/components/ui/dialog";
-import BookCallButton from "./CallToAction";
+import BookCallButton from "../button/CallToAction";
 import { useTheme } from "next-themes";
 
 const itemVariants = {
