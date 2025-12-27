@@ -1,18 +1,17 @@
-import BlogCard from "@/components/BlogCard";
+import BlogCard from "@/components/blog/BlogCard";
+import ContentHeader from "@/components/common/ContentHeader";
 import blogPosts from "@/data/blogPosts";
 
 export default function BlogPage() {
   return (
     <div className="w-full max-w-3xl mx-auto px-4 pt-16">
-      <section className="space-y-6">
-        <h1 className="text-4xl sm:text-5xl font-bold text-zinc-900 dark:text-zinc-50">
-          Blog
-        </h1>
-
-        <p className="text-base sm:text-lg font-light text-neutral-600 dark:text-neutral-400 max-w-2xl">
-          Thoughts, tutorials, and technical breakdowns on building apps, design
-          systems, AI tools, and more.
-        </p>
+      <section className="space-y-4">
+        <ContentHeader
+          heading="Blog"
+          subHeading=" Thoughts, tutorials, and technical breakdowns on building apps, design
+          systems, AI tools, and more."
+          size="lg"
+        />
 
         {blogPosts.length === 0 ? (
           <div className="mt-6 border border-dashed border-zinc-300 dark:border-zinc-700 rounded-xl p-8 text-center">
