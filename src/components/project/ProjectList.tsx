@@ -22,11 +22,7 @@ interface Project {
   };
 }
 
-type ProjectListProps = {
-  projects: Project[];
-};
-
-const ProjectList: React.FC<ProjectListProps> = ({ projects }) => {
+export default function ProjectList({ projects }: { projects: Project[] }) {
   const visibleProjects = projects.slice(0, 4);
   const hasMoreProjects = projects.length > 4;
 
@@ -99,6 +95,4 @@ const ProjectList: React.FC<ProjectListProps> = ({ projects }) => {
       )}
     </section>
   );
-};
-
-export default ProjectList;
+}
