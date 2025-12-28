@@ -14,7 +14,7 @@ type BlogPost = {
   isNew?: boolean;
 };
 
-export default function BlogSection({ posts = [] }: { posts?: BlogPost[] }) {
+export default function BlogList({ posts = [] }: { posts?: BlogPost[] }) {
   const visiblePosts = posts.slice(0, 4);
   const hasMorePosts = posts.length > 4;
 
