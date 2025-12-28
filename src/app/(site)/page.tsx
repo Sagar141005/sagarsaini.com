@@ -1,4 +1,4 @@
-import BlogSection from "@/components/blog/BlogSection";
+import BlogList from "@/components/blog/BlogList";
 import ContactSection from "@/components/landing/ContactSection";
 import ProjectList from "@/components/project/ProjectList";
 import TechStack from "@/components/landing/TechStack";
@@ -38,7 +38,7 @@ export default function Home() {
           heading="Blog"
           subHeading="Documenting the messy middle of projects, the pivots, and the lessons learned."
         />
-        <BlogSection posts={blogPosts} />
+        <BlogList posts={blogPosts} />
       </div>
 
       {/* Contact */}
