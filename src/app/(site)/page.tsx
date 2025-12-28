@@ -36,7 +36,7 @@ export default function Home() {
       <div className="mt-16 space-y-4">
         <ContentHeader
           heading="Blog"
-          subHeading="Documenting the messy middle of projects, the pivots, and the lessons learned."
+          subHeading="Notes and insights from projects, experiments, and ongoing learning."
         />
         <BlogList posts={blogPosts} />
       </div>
