@@ -89,8 +89,8 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
 
       <div className="flex flex-col gap-4 p-4 pt-2">
         <div>
-          <Link href={`/project/${slug}`} className="group/title block">
-            <h3 className="text-lg font-semibold text-foreground tracking-tight transition-colors group-hover/title:text-muted-foreground">
+          <Link href={`/project/${slug}`}>
+            <h3 className="text-xl font-semibold hover:text-foreground tracking-tight">
               {title}
             </h3>
           </Link>
@@ -142,7 +142,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
             )}
           </div>
 
-          <Button variant="link" size="sm" asChild className="h-auto py-0">
+          <Button variant="link" size="sm" asChild>
             <Link
               href={`/project/${slug}`}
               className="flex items-center gap-1 text-xs font-thin font-mono text-secondary"
