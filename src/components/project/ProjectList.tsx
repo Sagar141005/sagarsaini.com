@@ -22,9 +22,17 @@ interface Project {
   };
 }
 
-export default function ProjectList({ projects }: { projects: Project[] }) {
-  const visibleProjects = projects.slice(0, 4);
-  const hasMoreProjects = projects.length > 4;
+interface ProjectListProps {
+  projects: Project[];
+  showAll?: boolean;
+}
+
+export default function ProjectList({
+  projects,
+  showAll = false,
+}: ProjectListProps) {
+  const visibleProjects = showAll ? projects : projects.slice(0, 4);
+  const hasMoreProjects = !showAll && projects.length > 4;
 
   const cardVariants = {
     hidden: { opacity: 0, y: 50 },
@@ -48,16 +56,13 @@ export default function ProjectList({ projects }: { projects: Project[] }) {
         variants={{
           hidden: {},
           visible: {
-            transition: {
-              staggerChildren: 0.15,
-            },
+            transition: { staggerChildren: 0.15 },
           },
         }}
       >
-        {visibleProjects.map((project, i) => (
-          <motion.div key={project.title} variants={cardVariants}>
+        {visibleProjects.map((project) => (
+          <motion.div key={project.slug} variants={cardVariants}>
             <ProjectCard
-              key={project.title}
               title={project.title}
               description={project.description}
               image={project.image}
@@ -84,6 +89,7 @@ export default function ProjectList({ projects }: { projects: Project[] }) {
           </motion.div>
         ))}
       </motion.div>
+
       {hasMoreProjects && (
         <div className="flex justify-center mt-8">
           <Button variant="outline" asChild>

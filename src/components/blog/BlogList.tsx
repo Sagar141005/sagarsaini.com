@@ -14,22 +14,24 @@ type BlogPost = {
   isNew?: boolean;
 };
 
-export default function BlogList({ posts = [] }: { posts?: BlogPost[] }) {
-  const visiblePosts = posts.slice(0, 4);
-  const hasMorePosts = posts.length > 4;
+interface BlogListProps {
+  posts?: BlogPost[];
+  showAll?: boolean;
+}
+
+export default function BlogList({
+  posts = [],
+  showAll = false,
+}: BlogListProps) {
+  const visiblePosts = showAll ? posts : posts.slice(0, 4);
+  const hasMorePosts = !showAll && posts.length > 4;
 
   const cardVariants = {
-    hidden: {
-      opacity: 0,
-      y: 50,
-    },
+    hidden: { opacity: 0, y: 50 },
     visible: {
       opacity: 1,
       y: 0,
-      transition: {
-        duration: 0.5,
-        ease: "easeOut" as const,
-      },
+      transition: { duration: 0.5, ease: "easeOut" as const },
     },
   };
 
@@ -52,13 +54,22 @@ export default function BlogList({ posts = [] }: { posts?: BlogPost[] }) {
         </motion.div>
       ) : (
         <>
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-8 mt-4">
+          <motion.div
+            className="grid grid-cols-1 sm:grid-cols-2 gap-8 mt-4"
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            variants={{
+              hidden: {},
+              visible: { transition: { staggerChildren: 0.15 } },
+            }}
+          >
             {visiblePosts.map((post) => (
               <motion.div key={post.slug} variants={cardVariants}>
-                <BlogCard key={post.slug} post={post} />
+                <BlogCard post={post} />
               </motion.div>
             ))}
-          </div>
+          </motion.div>
 
           {hasMorePosts && (
             <div className="flex justify-center mt-8">
