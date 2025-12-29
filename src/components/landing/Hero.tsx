@@ -130,7 +130,7 @@ export default function Hero() {
           </span>
         </h1>
 
-        <p className="text-md sm:text-lg font-light leading-relaxed text-muted-foreground">
+        <div className="text-md sm:text-lg font-light leading-relaxed text-muted-foreground">
           I build scalable web apps with{" "}
           {skills.map((skill, index) => (
             <SkillBadge key={index} {...skill} />
@@ -140,7 +140,7 @@ export default function Hero() {
           user experience. Exploring{" "}
           <span className="font-medium text-foreground">AI</span> to build
           smarter solutions.
-        </p>
+        </div>
       </motion.div>
 
       <motion.div
