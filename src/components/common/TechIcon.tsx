@@ -6,6 +6,7 @@ import {
   Tooltip,
   TooltipContent,
   TooltipTrigger,
+  TooltipProvider,
 } from "@/components/ui/tooltip";
 import { cn } from "@/lib/utils";
 import { TooltipArrow } from "@radix-ui/react-tooltip";
@@ -38,41 +39,42 @@ const TechIcon: React.FC<TechIconProps> = ({
   if (!mounted || !resolvedTheme) return null;
 
   const finalSrc = src ?? (resolvedTheme === "dark" ? srcDark : srcLight);
-
   if (!finalSrc) return null;
 
   return (
-    <Tooltip>
-      <TooltipTrigger asChild>
-        <div
-          className={cn(
-            "relative group flex items-center justify-center transition-transform hover:scale-110",
-            className
-          )}
-        >
-          <Image
-            key={finalSrc}
-            src={finalSrc}
-            alt={label}
-            fill
-            priority={priority}
-            className="object-contain"
-          />
-        </div>
-      </TooltipTrigger>
+    <TooltipProvider delayDuration={100}>
+      <Tooltip>
+        <TooltipTrigger asChild>
+          <div
+            className={cn(
+              "relative group flex items-center justify-center transition-transform hover:scale-110",
+              className
+            )}
+          >
+            <Image
+              key={finalSrc}
+              src={finalSrc}
+              alt={label}
+              fill
+              priority={priority}
+              className="object-contain"
+            />
+          </div>
+        </TooltipTrigger>
 
-      <TooltipContent
-        side="top"
-        className="bg-zinc-900 text-zinc-50 dark:bg-zinc-100 dark:text-zinc-900 text-xs px-3 py-1.5 rounded-md shadow-lg border-none"
-      >
-        {label}
-        <TooltipArrow
-          className="fill-zinc-900 dark:fill-zinc-100"
-          width={10}
-          height={5}
-        />
-      </TooltipContent>
-    </Tooltip>
+        <TooltipContent
+          side="top"
+          className="bg-zinc-900 text-zinc-50 dark:bg-zinc-100 dark:text-zinc-900 text-xs px-3 py-1.5 rounded-md shadow-lg border-none"
+        >
+          {label}
+          <TooltipArrow
+            className="fill-zinc-900 dark:fill-zinc-100"
+            width={10}
+            height={5}
+          />
+        </TooltipContent>
+      </Tooltip>
+    </TooltipProvider>
   );
 };
 
