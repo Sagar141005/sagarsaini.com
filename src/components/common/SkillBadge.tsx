@@ -1,14 +1,18 @@
 import { motion } from "motion/react";
+import TechIcon from "@/components/common/TechIcon";
+import { TECH_ICONS } from "@/data/techMap";
 
 export default function SkillBadge({
   name,
   href,
-  img,
 }: {
   name: string;
-  href: string;
-  img: string;
+  href?: string;
 }) {
+  const config = TECH_ICONS[name];
+
+  if (!config) return null;
+
   return (
     <motion.a
       href={href}
@@ -22,7 +26,14 @@ export default function SkillBadge({
                      shadow-[inset_0_1px_2px_rgba(0,0,0,0.08)] dark:shadow-[inset_0_1px_2px_rgba(0,0,0,0.06)] 
                      transition-colors"
     >
-      <img src={img} alt="" className="size-3.5 object-contain" />
+      <TechIcon
+        label={name}
+        src={config.src}
+        srcLight={config.srcLight}
+        srcDark={config.srcDark}
+        priority={config.priority}
+        className="w-4 h-4"
+      />
       {name}
     </motion.a>
   );
