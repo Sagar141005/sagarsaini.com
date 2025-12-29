@@ -2,7 +2,7 @@
 
 import { motion } from "motion/react";
 import Link from "next/link";
-import SkillBadge from "./SkillBadge";
+import SkillBadge from "../common/SkillBadge";
 import { ArrowButton } from "../button/ArrowButton";
 import { ResumeButton } from "../button/ResumeButton";
 
@@ -20,36 +20,15 @@ const itemVariants = {
 };
 
 const skills = [
+  { name: "TypeScript", href: "https://www.typescriptlang.org/" },
   {
-    name: "Typescript",
-    href: "https://www.typescriptlang.org/",
-    img: "tech/typescript.svg",
-  },
-  {
-    name: "Javascript",
+    name: "JavaScript",
     href: "https://developer.mozilla.org/en-US/docs/Web/JavaScript",
-    img: "tech/js.svg",
   },
-  {
-    name: "React",
-    href: "https://react.dev/",
-    img: "tech/react.svg",
-  },
-  {
-    name: "Next.js",
-    href: "https://nextjs.org/",
-    img: "tech/nextjs2-light.svg",
-  },
-  {
-    name: "PostgreSQL",
-    href: "https://www.postgresql.org/",
-    img: "tech/postgre.svg",
-  },
-  {
-    name: "MongoDB",
-    href: "https://www.mongodb.com/",
-    img: "tech/mongodb.svg",
-  },
+  { name: "React", href: "https://react.dev/" },
+  { name: "Next.js", href: "https://nextjs.org/" },
+  { name: "PostgreSQL", href: "https://www.postgresql.org/" },
+  { name: "MongoDB", href: "https://www.mongodb.com/" },
 ];
 
 const socials = [
