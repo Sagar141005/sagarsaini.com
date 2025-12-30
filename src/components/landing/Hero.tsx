@@ -5,6 +5,7 @@ import Link from "next/link";
 import SkillBadge from "../common/SkillBadge";
 import { ArrowButton } from "../button/ArrowButton";
 import { ResumeButton } from "../button/ResumeButton";
+import Image from "next/image";
 
 const itemVariants = {
   hidden: { opacity: 0, y: 20, filter: "blur(5px)" },
@@ -63,7 +64,9 @@ export default function Hero() {
       >
         <div className="relative group shrink-0">
           <div className="relative overflow-hidden rounded-full ring-1 ring-border p-1 bg-background">
-            <img
+            <Image
+              width={100}
+              height={100}
               loading="lazy"
               src="/Profile.png"
               alt="Sagar Saini"
@@ -107,11 +110,13 @@ export default function Hero() {
                 href={social.href}
                 target="_blank"
                 rel="noopener noreferrer"
-                whileHover={{ y: -2, scale: 1.1 }}
+                whileHover={{ scale: 1.1 }}
                 whileTap={{ scale: 0.9 }}
                 className="relative block"
               >
-                <img
+                <Image
+                  width={100}
+                  height={100}
                   src={social.src}
                   alt={social.alt}
                   className="size-5 sm:size-6 object-contain filter opacity-60 hover:opacity-100 transition-all duration-300"

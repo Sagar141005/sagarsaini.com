@@ -3,6 +3,7 @@
 import React, { useState } from "react";
 import { motion } from "motion/react";
 import PlusIcon from "../svg/PlusIcon";
+import Image from "next/image";
 
 export default function BookCallButton({ onClick }: { onClick: () => void }) {
   const [isHovered, setIsHovered] = useState(false);
@@ -29,7 +30,9 @@ export default function BookCallButton({ onClick }: { onClick: () => void }) {
           />
 
           <div className="absolute left-1.5 top-0 z-30 h-8 w-8 rounded-full border border-border bg-secondary">
-            <img
+            <Image
+              width={100}
+              height={100}
               src="/Profile.png"
               alt="Me"
               className="h-full w-full rounded-full object-cover"

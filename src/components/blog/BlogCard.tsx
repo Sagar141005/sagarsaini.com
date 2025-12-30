@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 
 type BlogPost = {
@@ -28,7 +29,7 @@ export default function BlogCard({ post }: { post: BlogPost }) {
       className="group flex flex-col gap-3 rounded-2xl transition-colors duration-300"
     >
       <div className="relative select-none overflow-hidden rounded-2xl bg-muted">
-        <img
+        <Image
           src={post.image}
           alt={post.title}
           width={1200}
