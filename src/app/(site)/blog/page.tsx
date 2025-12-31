@@ -1,9 +1,11 @@
 import BlogList from "@/components/blog/BlogList";
 import Container from "@/components/common/Container";
 import ContentHeader from "@/components/common/ContentHeader";
-import blogPosts from "@/data/blogPosts";
+import { getBlogPosts } from "@/lib/blog";
 
 export default function BlogPage() {
+  const posts = getBlogPosts();
+
   return (
     <Container className="py-16 space-y-8">
       <ContentHeader
@@ -12,7 +14,7 @@ export default function BlogPage() {
         size="lg"
       />
 
-      <BlogList posts={blogPosts} showAll />
+      <BlogList posts={posts} showAll />
     </Container>
   );
 }

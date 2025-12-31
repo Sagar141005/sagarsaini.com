@@ -5,12 +5,14 @@ import TechStack from "@/components/landing/TechStack";
 import projects from "@/data/projects";
 import Hero from "@/components/landing/Hero";
 import { UPCOMING_DATA } from "@/data/upcomingProjects";
-import blogPosts from "@/data/blogPosts";
 import UpcomingProjects from "@/components/project/UpcomingProject";
 import Container from "@/components/common/Container";
 import ContentHeader from "@/components/common/ContentHeader";
+import { getBlogPosts } from "@/lib/blog";
 
 export default function Home() {
+  const posts = getBlogPosts();
+
   return (
     <Container className="py-16">
       {/* Profile Header */}
@@ -26,7 +28,6 @@ export default function Home() {
       </div>
 
       {/* Upcoming Projects */}
-
       <UpcomingProjects projects={UPCOMING_DATA} />
 
       {/* Tech Stack / Toolkit */}
@@ -38,7 +39,7 @@ export default function Home() {
           heading="Blog"
           subHeading="Notes and insights from projects, experiments, and ongoing learning."
         />
-        <BlogList posts={blogPosts} />
+        <BlogList posts={posts} />
       </div>
 
       {/* Contact */}
