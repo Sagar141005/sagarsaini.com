@@ -2,9 +2,10 @@
 
 import { useState } from "react";
 import { AnimatePresence, motion } from "motion/react";
-import { Check, Copy } from "lucide-react";
+import { Check } from "lucide-react";
 import { cn } from "@/lib/utils";
 import CopyIcon from "../svg/CopyIcon";
+import CheckIcon from "../svg/CheckIcon";
 
 interface CodeCopyButtonProps {
   code: string;
@@ -34,10 +35,7 @@ export default function CodeCopyButton({
       onClick={handleCopy}
       type="button"
       className={cn(
-        "absolute top-2 right-2 p-2 rounded-lg transition-all duration-200 flex items-center justify-center ring-1 ring-neutral-600 cursor-pointer",
-        copied
-          ? "bg-emerald-500 text-neutral-300 shadow-sm"
-          : "text-neutral-300",
+        "absolute top-2 right-2 p-1.5 rounded-sm text-primary transition-all duration-200 flex items-center justify-center bg-accent cursor-pointer",
         className
       )}
       aria-label="Copy text"
@@ -50,7 +48,7 @@ export default function CodeCopyButton({
             animate={{ scale: 1, opacity: 1 }}
             exit={{ scale: 0.5, opacity: 0 }}
           >
-            <Check className="stroke-3 size-4" />
+            <CheckIcon className="size-3" />
           </motion.div>
         ) : (
           <motion.div
@@ -59,7 +57,7 @@ export default function CodeCopyButton({
             animate={{ scale: 1, opacity: 1 }}
             exit={{ scale: 0.5, opacity: 0 }}
           >
-            <CopyIcon className="size-4" />
+            <CopyIcon className="size-3" />
           </motion.div>
         )}
       </AnimatePresence>
