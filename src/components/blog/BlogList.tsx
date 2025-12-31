@@ -5,24 +5,14 @@ import BlogCard from "@/components/blog/BlogCard";
 import { Button } from "../ui/button";
 import ChevronRightIcon from "../svg/ChevronRightIcon";
 import { motion } from "motion/react";
-
-type BlogPost = {
-  title: string;
-  slug: string;
-  date: string;
-  image: string;
-  isNew?: boolean;
-};
+import type { BlogPost } from "@/lib/blog";
 
 interface BlogListProps {
-  posts?: BlogPost[];
+  posts: BlogPost[];
   showAll?: boolean;
 }
 
-export default function BlogList({
-  posts = [],
-  showAll = false,
-}: BlogListProps) {
+export default function BlogList({ posts, showAll = false }: BlogListProps) {
   const visiblePosts = showAll ? posts : posts.slice(0, 4);
   const hasMorePosts = !showAll && posts.length > 4;
 
@@ -66,7 +56,14 @@ export default function BlogList({
           >
             {visiblePosts.map((post) => (
               <motion.div key={post.slug} variants={cardVariants}>
-                <BlogCard post={post} />
+                <BlogCard
+                  post={{
+                    title: post.metadata.title,
+                    slug: post.slug,
+                    date: post.metadata.date,
+                    image: post.metadata.image,
+                  }}
+                />
               </motion.div>
             ))}
           </motion.div>
