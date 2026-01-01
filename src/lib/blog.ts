@@ -1,18 +1,7 @@
 import fs from "fs";
 import path from "path";
 import matter from "gray-matter";
-
-export type BlogPost = {
-  slug: string;
-  metadata: {
-    title: string;
-    date: string;
-    image: string;
-    description: string;
-    tags?: string[];
-  };
-  content: string;
-};
+import { BlogPost } from "@/types/blog";
 
 const contentDirectory = path.join(process.cwd(), "src/data/blog");
 

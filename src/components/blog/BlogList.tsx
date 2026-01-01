@@ -5,8 +5,8 @@ import BlogCard from "@/components/blog/BlogCard";
 import { Button } from "../ui/button";
 import ChevronRightIcon from "../svg/ChevronRightIcon";
 import { motion } from "motion/react";
-import type { BlogPost } from "@/lib/blog";
 import { cardVariants, staggerContainer } from "@/lib/motionVariants";
+import { BlogPost } from "@/types/blog";
 
 interface BlogListProps {
   posts: BlogPost[];
@@ -51,6 +51,7 @@ export default function BlogList({ posts, showAll = false }: BlogListProps) {
                     slug: post.slug,
                     date: post.metadata.date,
                     image: post.metadata.image,
+                    description: post.metadata.description,
                   }}
                 />
               </motion.div>

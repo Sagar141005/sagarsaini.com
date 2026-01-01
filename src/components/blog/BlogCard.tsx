@@ -1,14 +1,8 @@
+import { BlogPreview } from "@/types/blog";
 import Image from "next/image";
 import Link from "next/link";
 
-type BlogPost = {
-  title: string;
-  slug: string;
-  date: string;
-  image: string;
-};
-
-export default function BlogCard({ post }: { post: BlogPost }) {
+export default function BlogCard({ post }: { post: BlogPreview }) {
   const isNew = (() => {
     const now = new Date();
     const published = new Date(post.date);
