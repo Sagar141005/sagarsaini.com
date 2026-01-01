@@ -15,35 +15,30 @@ import GithubIcon from "../svg/GithubIcon";
 import WebsiteIcon from "../svg/WebsiteIcon";
 import ArrowRightIcon from "../svg/ArrowRightIcon";
 import PlayIcon from "../svg/PlayIcon";
-
-export type TechItem = {
-  name: string;
-  icon: React.ReactNode;
-};
+import { ProjectPreview, TechItem } from "@/types/project";
 
 interface ProjectCardProps {
   title: string;
   description: string;
   image: string;
-  videoUrl?: string;
+  video?: string;
   slug: string;
-  technologies: TechItem[];
-  className?: string;
+  highlightTech: TechItem[];
   links: {
     demo?: string;
     github?: string;
   };
 }
 
-const ProjectCard: React.FC<ProjectCardProps> = ({
+export default function ProjectCard({
   title,
   description,
   image,
-  videoUrl,
+  video,
   slug,
-  technologies,
+  highlightTech,
   links,
-}) => {
+}: ProjectCardProps) {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
@@ -55,7 +50,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
           className="h-full w-full object-cover transition-all duration-500 ease-out group-hover/image:scale-105 group-hover/image:blur-sm"
         />
 
-        {videoUrl && (
+        {video && (
           <Dialog open={isOpen} onOpenChange={setIsOpen}>
             <DialogTrigger asChild>
               <div className="absolute inset-0 flex items-center justify-center opacity-0 transition-opacity duration-300 group-hover/image:opacity-100 cursor-pointer z-10 bg-black/10 backdrop-blur-[2px]">
@@ -72,7 +67,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
             <DialogContent className="max-w-4xl w-[95vw] p-0 border-0 bg-transparent shadow-none overflow-hidden">
               <div className="aspect-video w-full overflow-hidden rounded-xl border border-white/10 shadow-2xl bg-black">
                 <video
-                  src={videoUrl}
+                  src={video}
                   autoPlay
                   loop
                   controls
@@ -106,14 +101,14 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
           </h5>
           <div className="flex items-center gap-3">
             <TooltipProvider delayDuration={100}>
-              {technologies.map((tech, index) => (
+              {highlightTech.map((tech, index) => (
                 <React.Fragment key={index}>{tech.icon}</React.Fragment>
               ))}
             </TooltipProvider>
 
-            {technologies.length > 5 && (
+            {highlightTech.length > 5 && (
               <span className="text-xs text-muted-foreground">
-                +{technologies.length - 5}
+                +{highlightTech.length - 5}
               </span>
             )}
           </div>
@@ -155,6 +150,4 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
       </div>
     </div>
   );
-};
-
-export default ProjectCard;
+}

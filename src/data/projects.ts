@@ -1,24 +1,4 @@
-export type Project = {
-  slug: string;
-  title: string;
-  tagline: string;
-  description: string;
-  image: string;
-  video: string;
-  overview: string;
-  problem: string;
-  goals: string[];
-  techStack: { layer: string; tools: string }[];
-  highlightTech: string[];
-  features: { title: string; description: string }[];
-  challenges: { challenge: string; solution: string }[];
-  upcomingFeatures: string[];
-  results: string;
-  links: {
-    demo?: string;
-    github?: string;
-  };
-};
+import { Project } from "@/types/project";
 
 const projects: Project[] = [
   {
@@ -44,12 +24,12 @@ const projects: Project[] = [
       "Allow instant zip downloads of full project files for offline use",
     ],
     techStack: [
-      { layer: "Frontend", tools: "Next.js, React, Tailwind" },
+      { layer: "Frontend", tools: "Next.js, React, Tailwind CSS" },
       { layer: "Backend", tools: "Node.js, Express" },
       { layer: "Database", tools: "PostgreSQL, Prisma, Supabase" },
       { layer: "Realtime", tools: "Socket.io" },
       { layer: "Editor", tools: "Monaco Editor" },
-      { layer: "AI", tools: "OpenAI API" },
+      { layer: "AI", tools: "OpenAI" },
     ],
     highlightTech: [
       "Next.js",
@@ -172,11 +152,11 @@ const projects: Project[] = [
       "Ensure data privacy and an intuitive UX for all users",
     ],
     techStack: [
-      { layer: "Frontend", tools: "React, Tailwind" },
+      { layer: "Frontend", tools: "React, Tailwind CSS" },
       { layer: "Backend", tools: "Node.js, Express" },
-      { layer: "Database", tools: "MongoDB, Mongoose" },
-      { layer: "AI", tools: "OpenAI GPT, Embeddings" },
-      { layer: "Auth", tools: "NextAuth.js, OAuth, JWT" },
+      { layer: "Database", tools: "MongoDB" },
+      { layer: "AI", tools: "OpenAI" },
+      { layer: "Auth", tools: "OAuth, JWT" },
     ],
     highlightTech: ["React", "MongoDB", "OpenAI", "Tailwind"],
     features: [

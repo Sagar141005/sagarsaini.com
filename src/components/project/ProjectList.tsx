@@ -9,22 +9,10 @@ import { Button } from "../ui/button";
 import { motion } from "motion/react";
 import ChevronRightIcon from "../svg/ChevronRightIcon";
 import { cardVariants, staggerContainer } from "@/lib/motionVariants";
-
-interface Project {
-  title: string;
-  description: string;
-  image: string;
-  video: string;
-  slug: string;
-  highlightTech: string[];
-  links: {
-    demo?: string;
-    github?: string;
-  };
-}
+import { ProjectPreview } from "@/types/project";
 
 interface ProjectListProps {
-  projects: Project[];
+  projects: ProjectPreview[];
   showAll?: boolean;
 }
 
@@ -50,9 +38,9 @@ export default function ProjectList({
               title={project.title}
               description={project.description}
               image={project.image}
-              videoUrl={project.video}
+              video={project.video}
               slug={project.slug}
-              technologies={project.highlightTech.map((techName) => {
+              highlightTech={project.highlightTech.map((techName) => {
                 const config = TECH_ICONS[techName];
                 return {
                   name: techName,

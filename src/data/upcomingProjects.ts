@@ -1,4 +1,4 @@
-import { UpcomingProjectItem } from "@/components/project/UpcomingProject";
+import { UpcomingProjectItem } from "@/types/project";
 
 export const UPCOMING_DATA: UpcomingProjectItem[] = [
   {

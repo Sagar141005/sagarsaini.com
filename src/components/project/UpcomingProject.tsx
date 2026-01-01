@@ -4,14 +4,7 @@ import React from "react";
 import ContentHeader from "../common/ContentHeader";
 import { motion } from "motion/react";
 import { cardVariants, staggerContainer } from "@/lib/motionVariants";
-
-export type ProjectStatus = "In Progress" | "Upcoming" | "Planned" | "On Hold";
-
-export type UpcomingProjectItem = {
-  title: string;
-  description: string;
-  status: ProjectStatus;
-};
+import { ProjectStatus, UpcomingProjectItem } from "@/types/project";
 
 const STATUS_STYLES: Record<ProjectStatus, string> = {
   "In Progress":
