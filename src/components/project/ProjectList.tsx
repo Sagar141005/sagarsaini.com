@@ -8,6 +8,7 @@ import { TECH_ICONS } from "@/data/techMap";
 import { Button } from "../ui/button";
 import { motion } from "motion/react";
 import ChevronRightIcon from "../svg/ChevronRightIcon";
+import { cardVariants, staggerContainer } from "@/lib/motionVariants";
 
 interface Project {
   title: string;
@@ -34,18 +35,6 @@ export default function ProjectList({
   const visibleProjects = showAll ? projects : projects.slice(0, 4);
   const hasMoreProjects = !showAll && projects.length > 4;
 
-  const cardVariants = {
-    hidden: { opacity: 0, y: 50 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: {
-        duration: 0.5,
-        ease: "easeOut" as const,
-      },
-    },
-  };
-
   return (
     <section id="projects">
       <motion.div
@@ -53,12 +42,7 @@ export default function ProjectList({
         initial="hidden"
         whileInView="visible"
         viewport={{ once: true }}
-        variants={{
-          hidden: {},
-          visible: {
-            transition: { staggerChildren: 0.15 },
-          },
-        }}
+        variants={staggerContainer}
       >
         {visibleProjects.map((project) => (
           <motion.div key={project.slug} variants={cardVariants}>

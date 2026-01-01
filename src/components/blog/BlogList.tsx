@@ -6,6 +6,7 @@ import { Button } from "../ui/button";
 import ChevronRightIcon from "../svg/ChevronRightIcon";
 import { motion } from "motion/react";
 import type { BlogPost } from "@/lib/blog";
+import { cardVariants, staggerContainer } from "@/lib/motionVariants";
 
 interface BlogListProps {
   posts: BlogPost[];
@@ -15,15 +16,6 @@ interface BlogListProps {
 export default function BlogList({ posts, showAll = false }: BlogListProps) {
   const visiblePosts = showAll ? posts : posts.slice(0, 4);
   const hasMorePosts = !showAll && posts.length > 4;
-
-  const cardVariants = {
-    hidden: { opacity: 0, y: 50 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: { duration: 0.5, ease: "easeOut" as const },
-    },
-  };
 
   return (
     <section id="blogs">
@@ -49,10 +41,7 @@ export default function BlogList({ posts, showAll = false }: BlogListProps) {
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true }}
-            variants={{
-              hidden: {},
-              visible: { transition: { staggerChildren: 0.15 } },
-            }}
+            variants={staggerContainer}
           >
             {visiblePosts.map((post) => (
               <motion.div key={post.slug} variants={cardVariants}>

@@ -12,16 +12,7 @@ import {
 } from "@/components/ui/dialog";
 import BookCallButton from "../button/CallToAction";
 import { useTheme } from "next-themes";
-
-const itemVariants = {
-  hidden: { opacity: 0, y: 20, filter: "blur(5px)" },
-  visible: {
-    opacity: 1,
-    y: 0,
-    filter: "blur(0px)",
-    transition: { duration: 0.5, ease: "easeOut" as const },
-  },
-};
+import { itemVariants } from "@/lib/motionVariants";
 
 export default function ContactCTA() {
   const [showCal, setShowCal] = useState(false);

@@ -3,19 +3,7 @@
 import React from "react";
 import { motion } from "motion/react";
 import { cn } from "@/lib/utils";
-
-const containerVariants = {
-  hidden: { opacity: 0, y: 30 },
-  visible: {
-    opacity: 1,
-    y: 0,
-    transition: {
-      staggerChildren: 0.15,
-      delayChildren: 0.1,
-      duration: 0.4,
-    },
-  },
-};
+import { containerVariants } from "@/lib/motionVariants";
 
 export default function Container({
   children,

@@ -6,19 +6,7 @@ import SkillBadge from "../common/SkillBadge";
 import { ArrowButton } from "../button/ArrowButton";
 import { ResumeButton } from "../button/ResumeButton";
 import Image from "next/image";
-
-const itemVariants = {
-  hidden: { opacity: 0, y: 20, filter: "blur(5px)" },
-  visible: {
-    opacity: 1,
-    y: 0,
-    filter: "blur(0px)",
-    transition: {
-      duration: 0.3,
-      ease: "easeOut" as const,
-    },
-  },
-};
+import { itemVariants } from "@/lib/motionVariants";
 
 const skills = [
   { name: "TypeScript", href: "https://www.typescriptlang.org/" },

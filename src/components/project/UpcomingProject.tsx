@@ -3,6 +3,7 @@
 import React from "react";
 import ContentHeader from "../common/ContentHeader";
 import { motion } from "motion/react";
+import { cardVariants, staggerContainer } from "@/lib/motionVariants";
 
 export type ProjectStatus = "In Progress" | "Upcoming" | "Planned" | "On Hold";
 
@@ -26,18 +27,6 @@ type UpcomingProjectsProps = {
 };
 
 export default function UpcomingProjects({ projects }: UpcomingProjectsProps) {
-  const cardVariants = {
-    hidden: { opacity: 0, y: 50 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: {
-        duration: 0.5,
-        ease: "easeOut" as const,
-      },
-    },
-  };
-
   return (
     <div className="mt-16 space-y-4">
       <ContentHeader
@@ -50,14 +39,7 @@ export default function UpcomingProjects({ projects }: UpcomingProjectsProps) {
         initial="hidden"
         whileInView="visible"
         viewport={{ once: true }}
-        variants={{
-          hidden: {},
-          visible: {
-            transition: {
-              staggerChildren: 0.15,
-            },
-          },
-        }}
+        variants={staggerContainer}
       >
         {projects.map((project, index) => (
           <motion.div
