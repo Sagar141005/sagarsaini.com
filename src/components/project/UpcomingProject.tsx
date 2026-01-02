@@ -38,9 +38,10 @@ export default function UpcomingProjects({ projects }: UpcomingProjectsProps) {
           <motion.div
             key={index}
             variants={cardVariants}
-            className="group flex flex-col justify-between rounded-2xl border border-border bg-card p-5 transition-colors"
+            className="group relative flex flex-col justify-between rounded-2xl border border-border border-dashed p-4 bg-card transition-colors"
           >
-            <div>
+            <div className="absolute inset-0 bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-[size:24px_24px] [mask-image:radial-gradient(ellipse_at_top_right,black_0%,transparent_100%)] pointer-events-none opacity-50" />
+            <div className="relative z-10 flex flex-col gap-4">
               <div className="flex items-start justify-between gap-4">
                 <h3 className="text-lg font-semibold text-foreground tracking-tight">
                   {project.title}
@@ -48,8 +49,8 @@ export default function UpcomingProjects({ projects }: UpcomingProjectsProps) {
 
                 <span
                   className={`
-                    shrink-0 text-[10px] uppercase tracking-wider font-medium px-2.5 py-1 rounded-full ${
-                      STATUS_STYLES[project.status] || STATUS_STYLES["Upcoming"]
+                    shrink-0 text-[10px] uppercase tracking-wider font-medium px-2 py-0.5 font-mono rounded-md ${
+                      STATUS_STYLES[project.status] || STATUS_STYLES["Planned"]
                     }
                   `}
                 >

@@ -37,7 +37,7 @@ export default function ComponentDrawer({
             animate={{ x: 0 }}
             exit={{ x: "100%" }}
             transition={{ type: "spring", damping: 25, stiffness: 200 }}
-            className="fixed inset-y-0 right-0 z-50 h-full pb-8 w-full max-w-2xl border-l border-border bg-background shadow-2xl"
+            className="fixed inset-y-0 right-0 z-50 h-full pb-8 w-full max-w-2xl border-l border-border border-dashed bg-card shadow-2xl"
           >
             <div className="flex items-center justify-between border-b border-border/60 px-6 py-4">
               <div>
@@ -64,7 +64,7 @@ export default function ComponentDrawer({
                     Preview
                   </h3>
                   <div className="flex min-h-[240px] items-center justify-center rounded-xl border border-border bg-muted/30 p-8 relative overflow-hidden">
-                    <div className="absolute inset-0 bg-[linear-gradient(to_right,currentColor_1px,transparent_1px),linear-gradient(to_bottom,currentColor_1px,transparent_1px)] bg-[size:24px_24px] opacity-[0.03] pointer-events-none" />
+                    <div className="absolute inset-0 bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-[size:24px_24px] [mask-image:radial-gradient(ellipse_at_center,black_50%,transparent_100%)] pointer-events-none" />
                     <div className="relative z-10">{item.preview}</div>
                   </div>
                 </div>
@@ -81,7 +81,7 @@ export default function ComponentDrawer({
                   Source Code
                 </h3>
 
-                <div className="relative overflow-hidden rounded-xl border border-border bg-muted/50">
+                <div className="relative overflow-hidden rounded-xl border border-border bg-muted/30">
                   <div className="overflow-x-auto p-4">
                     <pre className="text-xs font-mono leading-relaxed text-foreground/90">
                       {item.code}
