@@ -1,6 +1,10 @@
 import React from "react";
 
-export default function MaximizeIcon({ className }: { className?: string }) {
+export default function ArrowUpRightIcon({
+  className,
+}: {
+  className?: string;
+}) {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -14,10 +18,8 @@ export default function MaximizeIcon({ className }: { className?: string }) {
       strokeLinejoin="round"
       className={className}
     >
-      <path d="M15 3h6v6" />
-      <path d="m21 3-7 7" />
-      <path d="m3 21 7-7" />
-      <path d="M9 21H3v-6" />
+      <path d="M7 7h10v10" />
+      <path d="M7 17 17 7" />
     </svg>
   );
 }
