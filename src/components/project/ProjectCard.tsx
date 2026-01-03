@@ -44,7 +44,7 @@ export default function ProjectCard({
   return (
     <div className="group flex flex-col gap-3 group-card w-full border border-border border-dashed rounded-2xl bg-card transition-colors overflow-hidden">
       <div className="relative aspect-[16/10] w-full p-2">
-        <div className="group/image relative h-full w-full overflow-hidden rounded-2xl border border-border bg-muted/50">
+        <div className="group/image relative h-full w-full overflow-hidden rounded-lg border border-border bg-muted/50">
           <motion.img
             src={image}
             alt={title}
@@ -54,7 +54,7 @@ export default function ProjectCard({
           {video && (
             <Dialog open={isOpen} onOpenChange={setIsOpen}>
               <DialogTrigger asChild>
-                <div className="absolute inset-0 flex items-center justify-center rounded-2xl opacity-0 transition-opacity duration-300 group-hover/image:opacity-100 cursor-pointer z-10 bg-background/20 backdrop-blur-[2px]">
+                <div className="absolute inset-0 flex items-center justify-center rounded-lg opacity-0 transition-opacity duration-300 group-hover/image:opacity-100 cursor-pointer z-10 bg-background/20 backdrop-blur-[2px]">
                   <motion.div
                     whileHover={{ scale: 1.1 }}
                     whileTap={{ scale: 0.95 }}

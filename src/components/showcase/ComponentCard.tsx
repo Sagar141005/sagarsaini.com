@@ -23,7 +23,7 @@ export default function ComponentCard({ item, onClick }: CardProps) {
       className="group flex flex-col gap-3 w-full border border-border border-dashed rounded-2xl bg-card transition-all"
     >
       <div className="relative w-full p-2 h-52">
-        <div className="relative h-full w-full overflow-hidden rounded-xl border border-border bg-muted/30 flex items-center justify-center cursor-pointer">
+        <div className="relative h-full w-full overflow-hidden rounded-lg border border-border bg-muted/30 flex items-center justify-center cursor-pointer">
           <div className="absolute inset-0 bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-[size:24px_24px] [mask-image:radial-gradient(ellipse_at_center,black_50%,transparent_100%)] pointer-events-none" />
           <div className="relative z-10 p-4">
             {isCodeOnly ? (
