@@ -28,7 +28,7 @@ export default function ComponentsPage() {
   return (
     <Container className="py-16 min-h-screen">
       <div className="space-y-8">
-        <div className="flex flex-col md:flex-row md:items-end justify-between gap-4">
+        <div className="flex flex-col md:flex-row md:items-end justify-between gap-4 pb-8 border-b border-border border-dashed">
           <ContentHeader
             heading="Components"
             subHeading="A collection of UI elements, hooks, and utilities I use across projects."
@@ -60,8 +60,6 @@ export default function ComponentsPage() {
             })}
           </div>
         </div>
-
-        <div className="h-px w-full bg-border" />
 
         <motion.div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           {filteredItems.map((item) => (
