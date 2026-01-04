@@ -1,0 +1,102 @@
+---
+title: "Morphly"
+description: "A comprehensive platform for document transformation and media processing. It employs a microservice architecture to orchestrate secure file handling, AI-powered image manipulation, and high-fidelity document conversion."
+image: "/projects/morphly.webp"
+video: "/new.mp4"
+highlightTech:
+  - Next.js
+  - TypeScript
+  - Python
+  - PostgreSQL
+  - Prisma
+  - Motion
+  - Tailwind CSS
+links:
+  demo: "https://morphly.sagarsaini.com"
+  github: "https://github.com/Sagar141005/Morphly"
+---
+
+# Morphly: Service-oriented file utility and conversion platform
+
+## Overview
+
+Morphly is a file utility platform engineered to unify disparate digital workflows—such as PDF conversion, background removal, and document manipulation—into a single interface. Unlike standard CRUD applications, Morphly is designed to handle complex binary data streams. It utilizes a service-oriented architecture to isolate heavy computational logic, ensuring the core application remains responsive while managing dependencies across Node.js and Python environments.
+
+## The Challenge
+
+Users frequently rely on multiple unverified, ad-heavy third-party websites to perform basic file operations. This fragmented approach exposes users to security risks and inconsistent output quality. There was a need for a centralized, secure, and professional tool capable of handling diverse digital assets without compromising user data privacy.
+
+### Project Goals
+
+- Engineer a system capable of handling complex Buffer, Blob, and Stream data types beyond standard JSON APIs.
+- Implement serverless file processing logic that avoids execution timeouts during heavy manipulation tasks.
+- Orchestrate third-party AI models for computationally expensive operations like background removal.
+- Establish a secure storage architecture for user assets using presigned URLs and cloud storage providers.
+
+## Technical Stack
+
+### Frontend
+
+- **Next.js 14 (App Router)**: robust framework for server-side rendering and routing.
+- **TypeScript**: Ensures type safety across complex data structures.
+- **Tailwind CSS**: Utility-first styling for a clean, professional UI.
+- **Zustand**: Lightweight state management for handling file upload queues.
+
+### Backend
+
+- **Node.js (Next.js API)**: Handles API routing and orchestration.
+- **Python (FastAPI)**: Microservice for AI processing and heavy computation.
+- **LibreOffice (Headless)**: Containerized service for high-fidelity document conversion.
+
+### Database & Auth
+
+- **PostgreSQL**: Relational database for structured user and transaction data.
+- **Prisma**: ORM for type-safe database queries.
+- **NextAuth**: Secure authentication handling.
+- **Supabase**: Managed database and auth services.
+
+### Infrastructure & Payments
+
+- **Docker**: Containerization for consistent multi-language environments.
+- **Vercel & Railway**: Hosting for frontend and backend microservices respectively.
+- **Cloudinary**: Cloud storage for media assets.
+- **Stripe**: Payment processing for premium credit management.
+
+## Key Features
+
+### High-Fidelity Document Conversion
+
+Utilizes a headless LibreOffice container to convert DOCX, PPTX, and XLSX formats to PDF with consistent rendering.
+
+### AI-Powered Image Processing
+
+Integrates Python-based AI models for background removal and supports various format conversions (PNG, JPG, WEBP).
+
+### Microservice Architecture
+
+Decouples the Next.js web application from Python AI services and file conversion workers to ensure scalability and fault tolerance.
+
+### Credit & Quota Management
+
+Enforces file size limits and deducts user credits only upon successful conversion, integrated with Stripe for payments.
+
+## Challenges & Solutions
+
+### Blocking the Node.js event loop with heavy conversion tasks
+
+**Solution:** Adopted a service-oriented architecture, offloading CPU-intensive PDF-to-DOCX conversion to a dedicated Python FastAPI microservice communicating via an internal Docker network.
+
+### Managing binary dependencies in a serverless environment
+
+**Solution:** Executed LibreOffice and Python processes in isolated containers to keep complex dependencies out of the main Node.js runtime, ensuring reproducible results.
+
+## Roadmap
+
+- Background job queue implementation (Redis / BullMQ)
+- Asynchronous conversion workers
+- Service-level health checks and centralized logging
+- File compression options and format auto-detection
+
+## Outcome
+
+The project successfully established a production-ready, Dockerized platform. It demonstrates advanced handling of binary streams and the orchestration of multi-language microservices (Node.js and Python) to solve practical file manipulation problems.

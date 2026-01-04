@@ -1,0 +1,120 @@
+---
+title: "CodeSphere"
+description: "A browser-based integrated development environment unifying real-time collaboration, Git-style version control, and AI-powered coding assistance. It creates a seamless 'VS Code in the browser' experience for pair programming and remote teams."
+image: "/projects/codesphere.webp"
+video: "/new.MP4"
+highlightTech:
+  - Next.js
+  - TypeScript
+  - PostgreSQL
+  - Prisma
+  - Socket.io
+  - Monaco Editor
+  - OpenAI
+  - Tailwind CSS
+links:
+  demo: "https://codesphere.sagarsaini.com"
+  github: "https://github.com/Sagar141005/CodeSphere"
+---
+
+# CodeSphere: Real-time collaborative IDE with AI integration
+
+## Overview
+
+CodeSphere is a full-stack web IDE designed to address the complexities of cloud-based development environments. It leverages a service-oriented approach to handle sub-millisecond state synchronization between multiple users. By integrating the Monaco Editor with a custom WebSocket architecture, it replicates the fidelity of local development while adding cloud-native capabilities like presence detection and voice communication.
+
+## The Challenge
+
+Standard online editors often suffer from high latency during multi-user sessions, lack integrated debugging tools, or gate advanced features behind paywalls. There was a gap for an open-source, polished solution that combined real-time concurrency with modern tooling like AI assistance and dependency injection.
+
+### Project Goals
+
+- Solve latency challenges to manage sub-millisecond updates for multi-user editing
+- Integrate context-aware AI pairing using OpenAI beyond simple auto-complete
+- Demonstrate a scalable WebSocket architecture
+- Implement a robust presence system and voice channels for seamless remote collaboration
+
+## Technical Stack
+
+### Frontend
+
+The frontend is built to replicate a desktop-class IDE experience in the browser:
+
+- **Next.js**: Framework for server-side rendering and efficient routing.
+- **TypeScript**: Ensures strict type safety across the complex editor state.
+- **Tailwind CSS**: For rapid, utility-first styling of the IDE interface.
+- **Monaco Editor**: The core engine powering VS Code features like Intellisense.
+
+### Backend
+
+The backend is engineered for low-latency, real-time communication:
+
+- **Node.js & Express**: Powers the core API and microservices.
+- **Socket.IO**: Handles bidirectional events for cursor tracking and code updates.
+- **OpenAI API**: integrated for the context-aware AI coding assistant.
+- **NextAuth.js**: Secure authentication and session management.
+
+### Infrastructure & Database
+
+Designed for data integrity and scalable deployment:
+
+- **PostgreSQL**: Relational database for storing user data and project metadata.
+- **Prisma ORM**: Type-safe database access and schema management.
+- **Docker**: Containerization for consistent development and deployment environments.
+- **Vercel & Render**: Distributed hosting for frontend assets and backend services.
+
+## Key Features
+
+### Real-Time Synchronization
+
+Bidirectional, low-latency communication via Socket.IO using operational transforms for conflict-free editing.
+
+### VS Code Fidelity
+
+Built on the Monaco Editor engine to provide Intellisense, syntax highlighting, and a familiar developer experience.
+
+### AI Pair Programmer
+
+Context-aware AI assistance for code refactoring, debugging, and generating explanations.
+
+### Integrated Voice & Presence
+
+WebRTC-powered voice channels and live presence indicators to facilitate immediate team communication.
+
+### Dynamic Dependency Injection
+
+Support for external libraries (e.g., Lodash, DayJS) with isolated live previews.
+
+### Project Management
+
+Full file system CRUD operations, folder nesting, and zip export capabilities.
+
+## Challenges & Solutions
+
+### Efficient real-time collaboration at scale
+
+**Solution:** Moved away from naive HTTP polling to a WebSocket-based architecture using differential patches. This reduced bandwidth usage by approximately 80% and ensured smooth cursor synchronization for multiple concurrent users.
+
+### Managing scoped undo/redo stacks
+
+**Solution:** Implemented isolated editor models with custom history stacks per file to prevent global undo conflicts when users switch between active tabs.
+
+### Versioning storage optimization
+
+**Solution:** Designed a normalized PostgreSQL schema that stores incremental file diffs linked to commit metadata rather than full file snapshots, drastically reducing storage requirements.
+
+### Secure dependency injection
+
+**Solution:** Built a scoped preview iframe system that dynamically loads CDN scripts while sandboxing execution to prevent global namespace conflicts.
+
+## Roadmap
+
+- GitHub Integration (Push commits, Clone repositories)
+- Advanced AI modes (Test case generation, Pair programming)
+- In-room Video Conferencing
+- Extended Language Runtime Support (Rust, Ruby, Go)
+- Mobile and Tablet optimization
+
+## Outcome
+
+The project successfully established a low-latency, collaborative environment that mirrors desktop IDE performance. It demonstrates proficiency in handling complex state distribution, database normalization for version control, and real-time AI orchestration.

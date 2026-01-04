@@ -1,0 +1,111 @@
+---
+title: "Career Hunt"
+description: "A production-grade recruitment platform designed for both job seekers and recruiters. It integrates AI for content generation, Redis for performance caching, and a complete DevOps pipeline."
+image: "/projects/career-hunt.webp"
+video: "/new.MP4"
+highlightTech:
+  - React
+  - JavaScript
+  - MongoDB
+  - Redis
+  - Docker
+  - OpenAI
+  - Tailwind CSS
+links:
+  demo: "https://career-hunt.xyz"
+  github: "https://github.com/Sagar141005/CareerHunt"
+---
+
+# Career Hunt: Full-stack job board and application management platform
+
+## Overview
+
+Career Hunt is a dual-sided platform simulating a real-world startup product. It streamlines the hiring process by providing recruiters with structured pipelines and job seekers with AI-enhanced application tools. The architecture emphasizes scalability and performance, utilizing Docker for environment parity and Redis to handle high-traffic read operations.
+
+## The Challenge
+
+Managing job applications via spreadsheets is inefficient for seekers, while recruiters often face friction with overly complex, expensive Applicant Tracking Systems (ATS). There was a need for a lightweight, centralized solution that democratizes access to ATS-like features and leverages AI to reduce the repetitive burden of application tailoring.
+
+### Project Goals
+
+- Demonstrate a clean, scalable full-stack architecture using the MERN stack
+- Implement secure, multi-provider authentication (Google, GitHub, LinkedIn) via OAuth
+- Integrate OpenAI to provide practical utility through resume improvements and cover letter generation
+- Establish an end-to-end DevOps workflow using Docker and CI/CD pipelines
+- Optimize database load for read-heavy operations using Redis caching
+
+## Technical Stack
+
+### Frontend
+
+- **React (Vite)**: Fast, modern client-side framework.
+- **Tailwind CSS**: Utility-first styling for responsive design.
+- **React Router**: Client-side routing for seamless navigation.
+
+### Backend
+
+- **Node.js & Express**: Scalable server-side logic and API routes.
+- **Redis**: In-memory data structure store used for caching high-traffic endpoints.
+
+### Database
+
+- **MongoDB (Mongoose)**: Flexible NoSQL database for handling variable job schemas.
+
+### AI & Auth
+
+- **OpenAI API**: Powers the generative AI features for resumes and cover letters.
+- **OAuth**: Secure authentication via Google, GitHub, and LinkedIn.
+
+### DevOps
+
+- **Docker**: Containerization for consistent development and production environments.
+- **GitHub Actions**: CI/CD pipelines for automated testing and deployment.
+- **Vercel & Railway**: Hosting solutions for frontend and backend respectively.
+
+## Key Features
+
+### AI Content Generation
+
+Leverages GPT models to analyze resumes for tone improvements and auto-generate context-aware cover letters.
+
+### Recruiter Management Suite
+
+Allows recruiters to post jobs with Markdown support, manage company profiles, and track candidate pipelines.
+
+### Performance Caching
+
+Implements Redis caching for job listings, reducing database load by approximately 40% during read-heavy traffic.
+
+### Secure Authentication
+
+Scalable OAuth implementation supporting multiple providers (Google, GitHub, LinkedIn) for seamless access.
+
+## Challenges & Solutions
+
+### Handling variable job description structures
+
+**Solution:** Adopted a NoSQL approach (MongoDB) to accommodate flexible schemas for job posts (e.g., varying compensation models) without complex migrations.
+
+### Optimizing read-heavy endpoints
+
+**Solution:** Integrated Redis to cache the 'Browse Jobs' data for one hour, significantly reducing latency and server load.
+
+### Ensuring cross-environment consistency
+
+**Solution:** Utilized Docker to containerize the application, ensuring identical runtime behavior across local development (macOS/Windows) and production Linux servers.
+
+### Improving AI relevance
+
+**Solution:** Engineered specific prompts to combine candidate skills with job descriptions, preventing generic AI output and ensuring tailored cover letters.
+
+## Roadmap
+
+- Browser extension for one-click job saving
+- Automated job import from LinkedIn/Indeed
+- Collaborative recruiter dashboards for team-based hiring
+- AI-driven mock interview assistant
+- Advanced analytics for application conversion rates
+
+## Outcome
+
+A robust, Dockerized full-stack application that successfully bridges the gap between simple trackers and complex ATS platforms. It demonstrates proficiency in cloud-native deployment, database optimization, and third-party API integration.

@@ -1,0 +1,79 @@
+---
+title: "RegexLab"
+description: "A production-ready reference tool for developers to explore, test, and implement complex regex patterns. It features a live validation engine and a library of categorized, battle-tested expressions."
+image: "/project/regexlab.webp"
+video: "/new.mp4"
+highlightTech:
+  - React
+  - JavaScript
+  - Motion
+  - Tailwind CSS
+links:
+  demo: "https://regexlab.sagarsaini.com"
+  github: "https://github.com/Sagar141005/RegexLab"
+---
+
+# RegexLab: Curated regular expression dictionary and testing environment
+
+## Overview
+
+RegexLab serves as a centralized repository for reliable regular expressions, replacing the need to search through disparate forums for validation logic. It combines a clean, distraction-free interface with a real-time testing engine, allowing developers to verify matches, groups, and parsing logic specifically for web and backend applications.
+
+## The Challenge
+
+Regular expressions are powerful but syntactically difficult to memorize. Developers often rely on unverified snippets from community forums (e.g., StackOverflow) for critical tasks like input sanitization or data parsing, leading to potential security vulnerabilities and inconsistent implementations.
+
+### Project Goals
+
+- Establish a reliable source of truth for production-ready regex patterns
+- Provide an immediate, client-side testing environment for pattern validation
+- Eliminate external dependencies by utilizing the browser's native RegExp engine
+- Ensure complete data privacy by processing all inputs locally
+
+## Technical Stack
+
+### Frontend
+
+- **React (Vite)**: Lightweight framework for a snappy, interactive user interface.
+- **Tailwind CSS**: Utility-first styling for consistent, responsive layout design.
+
+### Engine
+
+- **Vanilla JavaScript RegExp**: The core validation logic relies entirely on the native browser standard, ensuring zero external dependencies and maximum performance.
+
+### UI Components
+
+- **Lucide Icons**: Clean visual indicators for validation states and categories.
+- **Motion**: For smooth transitions and feedback animations.
+
+## Key Features
+
+### Live Validation Engine
+
+Real-time pattern testing area that instantly visualizes matches, capturing groups, and validation results as you type.
+
+### Curated Pattern Library
+
+A categorized collection of vetted patterns for common use cases including Auth, URLs, Dates, and Input Sanitization.
+
+### Zero-Dependency Architecture
+
+Built entirely on the vanilla JavaScript RegExp engine to ensure maximum performance and lightweight execution without bloated libraries.
+
+### Privacy-Centric Design
+
+All pattern matching and data entry occurs strictly in the browser memory, ensuring no sensitive test data is ever transmitted to a server.
+
+## Challenges & Solutions
+
+### Ensuring pattern reliability across different environments
+
+**Solution:** Focused on a curated 'hand-picked' collection of standard patterns rather than algorithmic generation to ensure consistent behavior in production code across different JS engines.
+
+### Providing immediate feedback without server latency
+
+**Solution:** Leveraged client-side state management to execute regex checks on every keystroke without API overhead, providing a true "instant" feel.
+
+## Outcome
+
+A practical, developer-first utility that improves workflow efficiency by reducing the time spent debugging and searching for syntax, delivered via a performant and privacy-conscious interface.

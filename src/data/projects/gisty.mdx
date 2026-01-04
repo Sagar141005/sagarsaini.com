@@ -1,0 +1,82 @@
+---
+title: "Gisty"
+description: "A minimalist Chrome extension that leverages Gemini 2.5 Flash Lite to transform webpages into concise, actionable bullet points. It features real-time streaming, multiple summary tones, and a zero-retention privacy architecture."
+image: "/projects/gisty.webp"
+video: "/new.MP4"
+highlightTech:
+  - Node.js
+  - Gemini
+links:
+  demo: "https://gisty.sagarsaini.com"
+  github: "https://github.com/Sagar141005/gisty"
+---
+
+# Gisty: Privacy-centric AI webpage summarizer
+
+## Overview
+
+Gisty is a Chrome extension designed to enhance reading efficiency by generating instant summaries of web content. Built on the Manifest V3 standard, it utilizes a Node.js backend to interface with the Gemini 2.5 Flash Lite API. The tool emphasizes speed and privacy, delivering streamed, chunk-by-chunk responses without storing user data or browsing history.
+
+## The Challenge
+
+Digesting lengthy articles and documentation is time-consuming. Users often require quick insights or specific tonal adjustments (e.g., ELI5, Academic) without context-switching to external AI tools or compromising their browsing privacy.
+
+### Project Goals
+
+- Develop a low-latency summarization tool utilizing AI streaming APIs for instant feedback
+- Implement a privacy-first architecture that ensures zero persistence of user inputs or summaries
+- Create a seamless browser integration via Manifest V3 and Context Menus
+- Support versatile content adaptation through multiple summary styles
+
+## Technical Stack
+
+### Extension Core
+
+- **Manifest V3**: The modern standard for Chrome extension architecture.
+- **JavaScript (Vanilla)**: Lightweight logic for content scripts and popups to ensure minimal overhead.
+- **HTML/CSS**: Standard web technologies for the interface.
+
+### Backend
+
+- **Node.js & Express**: Lightweight intermediary server to handle API requests securely.
+
+### AI Model
+
+- **Gemini 2.5 Flash Lite API**: Selected for its high token throughput and cost-efficiency relative to performance.
+
+### UI/Styling
+
+- **Lucide Icons**: Clean, vector-based iconography.
+- **Auto-Theme Detection**: Dynamic styling that respects the user's system appearance preferences.
+
+## Key Features
+
+### Real-Time Streaming
+
+Delivers summaries chunk-by-chunk using Gemini’s streaming API to ensure immediate UI feedback rather than waiting for the full completion.
+
+### Contextual Integration
+
+Supports right-click context menu actions to summarize specific text selections or paragraphs without leaving the current tab.
+
+### Adaptive Tones
+
+Offers multiple summary styles including Professional, Academic, Sarcastic, and ELI5 (Explain Like I'm 5) to suit different reading needs.
+
+### Privacy-First Architecture
+
+Designed with strict data policies: no browsing data, inputs, logs, or summaries are stored on the server.
+
+## Challenges & Solutions
+
+### Providing instant feedback for long content
+
+**Solution:** Implemented a streaming response architecture to display summary chunks in real-time rather than waiting for full generation.
+
+### Seamless browser integration
+
+**Solution:** Leveraged Manifest V3 to inject overlay UIs and context menus that adapt strictly to the user's system theme (Dark/Light).
+
+## Outcome
+
+A functional, privacy-preserving browser extension that successfully integrates advanced AI models into the daily browsing workflow, providing rapid information synthesis without data retention.

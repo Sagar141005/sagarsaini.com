@@ -1,0 +1,81 @@
+---
+title: "HueBit"
+description: "A developer-centric tool that leverages modern color science to generate accessible, theme-aware palettes. It automates the creation of light/dark modes and exports tokens for Tailwind, CSS, and Figma."
+image: "/projects/huebit.webp"
+video: "/new.MP4"
+highlightTech:
+  - React
+  - JavaScript
+  - Tailwind CSS
+links:
+  demo: "https://huebit.sagarsaini.com"
+  github: "https://github.com/Sagar141005/HueBit"
+---
+
+# HueBit: Semantic color system and design token generator
+
+## Overview
+
+HueBit is designed to streamline the creation of robust design systems. Unlike simple color pickers, it uses perceptual color spaces to generate mathematically uniform scales (50–950) and automatically derives balanced dark mode variants. It serves as a bridge between design and engineering by validating accessibility and standardizing token exports.
+
+## The Challenge
+
+Developers and designers often struggle to create consistent color scales that maintain perceptual uniformity across different hues. Additionally, manually calculating WCAG contrast ratios and tuning dark mode variants results in inconsistent, 'muddy' interfaces and inefficient workflows.
+
+### Project Goals
+
+- Implement algorithmic color generation using perceptual color spaces for smooth gradients
+- Automate the creation of high-fidelity Dark Mode variants with balanced contrast
+- Integrate real-time WCAG accessibility validation for all generated tokens
+- Streamline the design-to-code pipeline with industry-standard export formats
+
+## Technical Stack
+
+### Frontend
+
+- **React (Vite)**: Selected for high-performance client-side rendering and fast build times.
+- **Tailwind CSS**: Utility-first framework for rapid, maintainable UI development.
+
+### Logic & Math
+
+- **Color.js**: Powers the core engine, enabling operations within perceptual color spaces to ensure visual uniformity.
+
+### UI Components
+
+- **Lucide Icons**: Consistent, lightweight vector iconography.
+
+### Architecture
+
+- **Client-side Processing**: Ensures zero latency and maximum privacy by handling all calculations locally in the browser without server retention.
+
+## Key Features
+
+### Semantic Color Generation
+
+Generates full neutral and chromatic scales (50–950) tailored for real-world UI application, moving beyond simple hex codes to actionable tokens.
+
+### Automated Dark Mode
+
+Algorithmically creates dark theme variants ensuring balanced HEX/HSL contrast without the need for manual, trial-and-error tuning.
+
+### Accessibility Engine
+
+Automatic WCAG contrast validation for text, backgrounds, and interactive elements to ensure compliance with web accessibility standards.
+
+### Multi-Format Export
+
+Exports ready-to-use tokens for CSS Variables, Tailwind config, JSON, and W3C-standard Figma tokens, bridging the gap between design tools and codebases.
+
+## Challenges & Solutions
+
+### Achieving perceptual uniformity in color scaling
+
+**Solution:** Utilized advanced color math libraries to operate within perceptual color spaces, ensuring uniform steps in brightness and chroma unlike standard RGB calculations which often yield uneven gradients.
+
+### Ensuring consistent Dark Mode contrast
+
+**Solution:** Implemented an algorithmic approach to invert and balance scales, preventing visual inconsistencies often found in manual dark mode implementations.
+
+## Outcome
+
+A professional-grade utility that eliminates manual color tuning, providing a mathematically accurate engine for generating production-ready design system tokens.
