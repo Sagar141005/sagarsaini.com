@@ -5,6 +5,15 @@ import { Project } from "@/types/project";
 
 const projectDirectory = path.join(process.cwd(), "src/data/projects");
 
+const PROJECT_SEQUENCE = [
+  "code-sphere",
+  "career-hunt",
+  "morphly",
+  "gisty",
+  "hue-bit",
+  "regex-lab",
+];
+
 export function getProjects(): Project[] {
   if (!fs.existsSync(projectDirectory)) return [];
 
@@ -26,10 +35,15 @@ export function getProjects(): Project[] {
       };
     });
 
-  return projects.sort(
-    (a, b) =>
-      new Date(b.metadata.date).getTime() - new Date(a.metadata.date).getTime()
-  );
+  return projects.sort((a, b) => {
+    const indexA = PROJECT_SEQUENCE.indexOf(a.slug);
+    const indexB = PROJECT_SEQUENCE.indexOf(b.slug);
+
+    if (indexA === -1) return 1;
+    if (indexB === -1) return -1;
+
+    return indexA - indexB;
+  });
 }
 
 export function getProjectBySlug(slug: string): Project | undefined {

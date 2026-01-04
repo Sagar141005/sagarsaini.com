@@ -11,7 +11,6 @@ export type ProjectLinks = {
 export type ProjectMetadata = {
   title: string;
   description: string;
-  date: string;
 
   image: string;
   video?: string;
