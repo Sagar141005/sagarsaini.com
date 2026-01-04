@@ -8,40 +8,23 @@ export type ProjectLinks = {
   github?: string;
 };
 
-export type Project = {
-  slug: string;
+export type ProjectMetadata = {
   title: string;
-  tagline: string;
   description: string;
+  date: string;
 
   image: string;
   video?: string;
 
-  overview: string;
-  problem: string;
-  goals: string[];
-
-  techStack: {
-    layer: string;
-    tools: string;
-  }[];
-
-  highlightTech: string[];
-
-  features: {
-    title: string;
-    description: string;
-  }[];
-
-  challenges: {
-    challenge: string;
-    solution: string;
-  }[];
-
-  upcomingFeatures?: string[];
-  results?: string;
-
   links: ProjectLinks;
+
+  highlightTech?: string[];
+};
+
+export type Project = {
+  slug: string;
+  metadata: ProjectMetadata;
+  content: string;
 };
 
 export type ProjectPreview = {
