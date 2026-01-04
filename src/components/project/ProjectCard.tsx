@@ -16,6 +16,7 @@ import WebsiteIcon from "../svg/WebsiteIcon";
 import ArrowRightIcon from "../svg/ArrowRightIcon";
 import PlayIcon from "../svg/PlayIcon";
 import { TechItem } from "@/types/project";
+import Image from "next/image";
 
 interface ProjectCardProps {
   title: string;
@@ -45,28 +46,26 @@ export default function ProjectCard({
     <div className="group flex flex-col gap-3 group-card w-full border border-border border-dashed rounded-2xl bg-card transition-colors overflow-hidden">
       <div className="relative aspect-[16/10] w-full p-2">
         <div className="group/image relative h-full w-full overflow-hidden rounded-lg border border-border bg-muted/50">
-          <motion.img
+          <Image
             src={image}
             alt={title}
-            className="h-full w-full object-cover transition-all duration-500 ease-out group-hover/image:blur-sm"
+            width={1920}
+            height={1080}
+            className="h-full w-full object-cover transition-all duration-500 ease-out group-hover/image:blur-xs"
           />
 
           {video && (
             <Dialog open={isOpen} onOpenChange={setIsOpen}>
               <DialogTrigger asChild>
                 <div className="absolute inset-0 flex items-center justify-center rounded-lg opacity-0 transition-opacity duration-300 group-hover/image:opacity-100 cursor-pointer z-10 bg-background/20 backdrop-blur-[2px]">
-                  <motion.div
-                    whileHover={{ scale: 1.1 }}
-                    whileTap={{ scale: 0.95 }}
-                    className="flex h-12 w-12 items-center justify-center rounded-full bg-background/80 backdrop-blur-md border border-border shadow-lg text-foreground transition-all hover:bg-primary hover:text-primary-foreground"
-                  >
+                  <div className="flex h-12 w-12 items-center justify-center rounded-full bg-background/80 backdrop-blur-md border border-border shadow-lg text-foreground transition-all duration-200 hover:scale-110 active:scale-95">
                     <PlayIcon className="h-5 w-5 fill-current ml-0.5" />
-                  </motion.div>
+                  </div>
                 </div>
               </DialogTrigger>
 
               <DialogContent className="max-w-4xl w-[95vw] p-0 border-0 bg-transparent shadow-none overflow-hidden">
-                <div className="aspect-video w-full overflow-hidden rounded-xl border border-border/50 shadow-2xl bg-black">
+                <div className="aspect-video w-full overflow-hidden rounded-xl shadow-2xl">
                   <video
                     src={video}
                     autoPlay
@@ -100,14 +99,14 @@ export default function ProjectCard({
         <div className="flex flex-col gap-2">
           <div className="flex items-center gap-3">
             <TooltipProvider delayDuration={100}>
-              {highlightTech.map((tech, index) => (
+              {highlightTech.slice(0, 6).map((tech, index) => (
                 <React.Fragment key={index}>{tech.icon}</React.Fragment>
               ))}
             </TooltipProvider>
 
-            {highlightTech.length > 5 && (
+            {highlightTech.length > 6 && (
               <span className="text-[10px] font-bold text-muted-foreground uppercase tracking-widest">
-                +{highlightTech.length - 5}
+                +{highlightTech.length - 6}
               </span>
             )}
           </div>
