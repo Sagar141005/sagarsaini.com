@@ -4,7 +4,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { Button } from "@/components/ui/button";
 import Container from "@/components/common/Container";
-import { MDXContent } from "@/components/blog/MDXContent";
+import { MDXContent } from "@/components/common/MDXContent";
 import { getPostBySlug, getBlogPosts } from "@/lib/blog";
 import CalendarIcon from "@/components/svg/CalendarIcon";
 import { ShareButton } from "@/components/button/ShareButton";
