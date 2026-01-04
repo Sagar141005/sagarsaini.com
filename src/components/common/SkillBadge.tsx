@@ -1,3 +1,5 @@
+"use client";
+
 import { motion } from "motion/react";
 import TechIcon from "@/components/common/TechIcon";
 import { TECH_ICONS } from "@/data/techMap";
