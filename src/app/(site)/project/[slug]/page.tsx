@@ -71,7 +71,7 @@ export default async function ProjectPage({
           <h1 className="text-4xl md:text-5xl font-bold tracking-tight text-foreground text-balance">
             {title}
           </h1>
-          <p className="text-xl text-muted-foreground font-light leading-relaxed text-balance">
+          <p className="text-lg text-muted-foreground font-light leading-relaxed text-balance">
             {description}
           </p>
         </div>
