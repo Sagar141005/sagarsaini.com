@@ -2,16 +2,31 @@ import BlogList from "@/components/blog/BlogList";
 import ContactSection from "@/components/landing/ContactSection";
 import ProjectList from "@/components/project/ProjectList";
 import TechStack from "@/components/landing/TechStack";
-import projects from "@/data/projects";
 import Hero from "@/components/landing/Hero";
 import { UPCOMING_DATA } from "@/data/upcomingProjects";
 import UpcomingProjects from "@/components/project/UpcomingProject";
 import Container from "@/components/common/Container";
 import ContentHeader from "@/components/common/ContentHeader";
 import { getBlogPosts } from "@/lib/blog";
+import { getProjects } from "@/lib/projects";
+import { ProjectPreview } from "@/types/project";
 
 export default function Home() {
   const posts = getBlogPosts();
+  const rawProjects = getProjects();
+
+  const projects: ProjectPreview[] = rawProjects.map((p) => ({
+    slug: p.slug,
+    title: p.metadata.title,
+    description: p.metadata.description,
+    image: p.metadata.image,
+    video: p.metadata.video,
+    highlightTech: p.metadata.highlightTech || [],
+    links: {
+      demo: p.metadata.links.demo,
+      github: p.metadata.links.github,
+    },
+  }));
 
   return (
     <Container className="py-16">
