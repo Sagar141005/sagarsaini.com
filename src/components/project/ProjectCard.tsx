@@ -2,7 +2,6 @@
 
 import React, { useState } from "react";
 import Link from "next/link";
-import { motion } from "motion/react";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import {
   Dialog,
