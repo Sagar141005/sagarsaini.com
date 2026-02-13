@@ -18,7 +18,7 @@ import Container from "./Container";
 
 const links = [
   { label: "Projects", href: "/projects" },
-  // { label: "Components", href: "/components" },
+  { label: "Components", href: "/components" },
   { label: "Blog", href: "/blog" },
 ];
 
