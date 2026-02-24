@@ -4,18 +4,31 @@ import { useTheme } from "next-themes";
 import soundManager from "@/lib/sound-manager";
 import { MoonIcon } from "../svg/animated/Moon";
 import { SunIcon } from "../svg/animated/Sun";
-import { cn } from "@/lib/utils";
 import { useEffect, useState } from "react";
 
 export default function ThemeToggle() {
-  const { theme, setTheme, resolvedTheme } = useTheme();
+  const { setTheme, resolvedTheme } = useTheme();
   const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
     setMounted(true);
   }, []);
 
-  if (!mounted) return null;
+  const buttonClasses =
+    "inline-flex items-center justify-center p-2 rounded-lg hover:bg-muted text-primary cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-1 focus-visible:ring-offset-background";
+
+  if (!mounted) {
+    return (
+      <button
+        type="button"
+        className={buttonClasses}
+        aria-hidden="true"
+        disabled
+      >
+        <span className="h-4 w-4" />
+      </button>
+    );
+  }
 
   const isDark = resolvedTheme === "dark";
 
@@ -24,22 +37,15 @@ export default function ThemeToggle() {
     soundManager.playClick();
   };
 
-  const commonClasses =
-    "p-2 rounded-lg hover:bg-muted text-primary cursor-pointer";
-
-  return isDark ? (
-    <MoonIcon
-      size={16}
+  return (
+    <button
+      type="button"
       onClick={toggleTheme}
-      className={commonClasses}
-      aria-label="Switch to light mode"
-    />
-  ) : (
-    <SunIcon
-      size={16}
-      onClick={toggleTheme}
-      className={commonClasses}
-      aria-label="Switch to dark mode"
-    />
+      className={buttonClasses}
+      aria-label={isDark ? "Switch to light mode" : "Switch to dark mode"}
+      aria-pressed={isDark}
+    >
+      {isDark ? <MoonIcon size={16} /> : <SunIcon size={16} />}
+    </button>
   );
 }

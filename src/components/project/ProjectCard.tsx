@@ -50,18 +50,24 @@ export default function ProjectCard({
             alt={title}
             width={1920}
             height={1080}
+            sizes="(max-width: 640px) calc(100vw - 2rem), (max-width: 1024px) 50vw, 380px"
+            quality={70}
             className="h-full w-full object-cover transition-all duration-500 ease-out group-hover/image:blur-xs"
           />
 
           {video && (
-            <Dialog open={isOpen} onOpenChange={setIsOpen}>
-              <DialogTrigger asChild>
-                <div className="absolute inset-0 flex items-center justify-center rounded-lg opacity-0 transition-opacity duration-300 group-hover/image:opacity-100 cursor-pointer z-10 bg-background/20 backdrop-blur-[2px]">
-                  <div className="flex h-12 w-12 items-center justify-center rounded-full bg-background/80 backdrop-blur-md border border-border shadow-lg text-foreground transition-all duration-200 hover:scale-110 active:scale-95">
-                    <PlayIcon className="h-5 w-5 fill-current ml-0.5" />
-                  </div>
-                </div>
-              </DialogTrigger>
+              <Dialog open={isOpen} onOpenChange={setIsOpen}>
+                <DialogTrigger asChild>
+                  <button
+                    type="button"
+                    aria-label={`Play ${title} preview video`}
+                    className="absolute inset-0 flex items-center justify-center rounded-lg opacity-0 transition-opacity duration-300 group-hover/image:opacity-100 group-focus-within/image:opacity-100 cursor-pointer z-10 bg-background/20 backdrop-blur-[2px] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background"
+                  >
+                    <div className="flex h-12 w-12 items-center justify-center rounded-full bg-background/80 backdrop-blur-md border border-border shadow-lg text-foreground transition-all duration-200 hover:scale-110 active:scale-95">
+                      <PlayIcon className="h-5 w-5 fill-current ml-0.5" />
+                    </div>
+                  </button>
+                </DialogTrigger>
 
               <DialogContent className="max-w-4xl w-[95vw] p-0 border-0 bg-transparent shadow-none overflow-hidden">
                 <div className="aspect-video w-full overflow-hidden rounded-xl shadow-2xl">
@@ -117,6 +123,7 @@ export default function ProjectCard({
               <Link
                 href={links.demo}
                 target="_blank"
+                rel="noopener noreferrer"
                 className="text-muted-foreground hover:text-foreground transition-colors"
                 title="Live Demo"
               >
@@ -128,6 +135,7 @@ export default function ProjectCard({
               <Link
                 href={links.github}
                 target="_blank"
+                rel="noopener noreferrer"
                 className="text-muted-foreground hover:text-foreground transition-colors"
                 title="Source Code"
               >

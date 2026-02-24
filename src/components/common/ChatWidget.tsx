@@ -118,7 +118,7 @@ export default function ChatWidget() {
                 </div>
                 <div>
                   <h3 className="text-sm font-semibold text-foreground tracking-tight">
-                    Sagar's Assistant
+                    Sagar&apos;s Assistant
                   </h3>
                   <p className="flex items-center gap-1.5 text-[10px] text-muted-foreground font-medium">
                     <span className="block h-1.5 w-1.5 rounded-full bg-emerald-500 animate-[pulse_2s_ease-in-out_infinite]" />
@@ -130,12 +130,20 @@ export default function ChatWidget() {
                 variant="ghost"
                 className="h-8 w-8 text-muted-foreground hover:text-foreground hover:bg-muted"
                 onClick={() => setIsOpen(false)}
+                aria-label="Close chat widget"
+                type="button"
               >
                 <X className="h-4 w-4" />
               </Button>
             </div>
 
-            <div className="h-[380px] overflow-y-auto p-4 scrollbar-thin scrollbar-thumb-border">
+            <div
+              className="h-[min(60vh,380px)] overflow-y-auto p-4 scrollbar-thin scrollbar-thumb-border sm:h-[380px]"
+              role="log"
+              aria-live="polite"
+              aria-relevant="additions text"
+              aria-label="Chat messages"
+            >
               <div className="flex flex-col gap-4">
                 {messages.map((msg) => (
                   <div
@@ -215,6 +223,7 @@ export default function ChatWidget() {
                       <button
                         key={q}
                         onClick={() => handleSendMessage(q)}
+                        type="button"
                         className="text-xs border border-border bg-background px-3 py-1.5 rounded-full hover:bg-muted hover:border-border-foreground/20 transition-all text-muted-foreground hover:text-foreground text-left font-light"
                       >
                         {q}
@@ -238,11 +247,13 @@ export default function ChatWidget() {
                   onChange={(e) => setInputValue(e.target.value)}
                   placeholder="Ask me anything..."
                   className="h-10 rounded-2xl border-border bg-muted/50 px-4 focus-visible:ring-primary/20"
+                  aria-label="Type your message"
                 />
                 <Button
                   type="submit"
                   disabled={!inputValue.trim() || isTyping}
                   className="h-10 w-10 shrink-0 rounded-xl bg-primary text-primary-foreground hover:opacity-90 transition-opacity shadow-sm"
+                  aria-label="Send message"
                 >
                   <PlaneIcon />
                 </Button>

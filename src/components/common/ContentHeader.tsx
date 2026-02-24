@@ -5,18 +5,22 @@ interface ContentHeaderProps {
   heading: string;
   subHeading?: string;
   size?: "sm" | "lg";
+  as?: "h1" | "h2" | "h3";
 }
 
 export default function ContentHeader({
   heading,
   subHeading,
   size = "sm",
+  as = "h2",
 }: ContentHeaderProps) {
+  const HeadingTag = as;
+
   return (
     <div
       className={cn(size == "sm" && "space-y-0", size === "lg" && "space-y-4")}
     >
-      <h1
+      <HeadingTag
         className={cn(
           "text-foreground",
           size === "sm" && "text-2xl sm:text-3xl font-semibold",
@@ -24,7 +28,7 @@ export default function ContentHeader({
         )}
       >
         {heading}
-      </h1>
+      </HeadingTag>
 
       {subHeading && (
         <p

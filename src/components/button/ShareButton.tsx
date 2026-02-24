@@ -51,7 +51,7 @@ export function ShareButton({ title, slug }: ShareDialogProps) {
       shareUrl = `https://twitter.com/intent/tweet?text=${encodedTitle}&url=${encodedUrl}`;
     }
 
-    window.open(shareUrl, "_blank");
+    window.open(shareUrl, "_blank", "noopener,noreferrer");
     setIsOpen(false);
   };
 

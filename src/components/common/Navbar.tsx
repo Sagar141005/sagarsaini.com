@@ -1,10 +1,10 @@
 "use client";
 
 import Link from "next/link";
+import dynamic from "next/dynamic";
 import { useEffect, useState } from "react";
 import { usePathname } from "next/navigation";
 import Theme from "../nav/Theme";
-import { CommandMenu } from "../nav/CommandMenu";
 import { Kbd, KbdGroup } from "../ui/kbd";
 import { Button } from "../ui/button";
 import {
@@ -16,6 +16,11 @@ import {
 import SearchIcon from "../svg/SearchIcon";
 import Container from "./Container";
 
+const CommandMenu = dynamic(
+  () => import("../nav/CommandMenu").then((mod) => mod.CommandMenu),
+  { ssr: false }
+);
+
 const links = [
   { label: "Projects", href: "/projects" },
   { label: "Components", href: "/components" },
@@ -23,7 +28,6 @@ const links = [
 ];
 
 const Navbar = () => {
-  const [mounted, setMounted] = useState(false);
   const [openCmd, setOpenCmd] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const [isMac, setIsMac] = useState(false);
@@ -42,8 +46,6 @@ const Navbar = () => {
   };
 
   useEffect(() => {
-    setMounted(true);
-
     const handleScroll = () => {
       setScrolled(window.scrollY > 50);
     };
@@ -57,6 +59,7 @@ const Navbar = () => {
 
     window.addEventListener("scroll", handleScroll);
     document.addEventListener("keydown", down);
+    handleScroll();
 
     return () => {
       window.removeEventListener("scroll", handleScroll);
@@ -67,8 +70,6 @@ const Navbar = () => {
   useEffect(() => {
     setIsMac(/Mac|iPhone|iPad|iPod/.test(navigator.platform));
   }, []);
-
-  if (!mounted) return null;
 
   return (
     <>
@@ -97,6 +98,7 @@ const Navbar = () => {
                 <Link
                   key={href}
                   href={href}
+                  aria-current={isLinkActive(href) ? "page" : undefined}
                   className={`text-sm font-light transition-colors font-mono ${
                     isLinkActive(href)
                       ? "text-foreground"
@@ -110,6 +112,8 @@ const Navbar = () => {
 
             <button
               onClick={() => setOpenCmd(true)}
+              type="button"
+              aria-label="Open command menu"
               className="inline-flex items-center justify-center text-sm font-medium whitespace-nowrap transition-[background-color,scale] ease-out outline-none focus-visible:border-ring focus-visible:ring-[3px] focus-visible:ring-ring/50 active:scale-[0.98] disabled:pointer-events-none disabled:opacity-50 aria-invalid:border-destructive aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-4 h-8 gap-1.5 rounded-full border border-input bg-background px-2.5 text-muted-foreground shadow-xs select-none hover:bg-accent/50 dark:bg-input/30 dark:hover:bg-input/40"
             >
               <SearchIcon />
@@ -138,6 +142,7 @@ const Navbar = () => {
                   <Button
                     variant="ghost"
                     className="group/toggle flex flex-col gap-1 data-[state=open]:bg-accent"
+                    aria-label="Toggle menu"
                   >
                     <span className="flex h-0.5 w-4 transform rounded-[1px] bg-foreground transition-transform group-data-[state=open]/toggle:translate-y-[3px] group-data-[state=open]/toggle:rotate-45" />
                     <span className="flex h-0.5 w-4 transform rounded-[1px] bg-foreground transition-transform group-data-[state=open]/toggle:translate-y-[-3px] group-data-[state=open]/toggle:-rotate-45" />
@@ -154,6 +159,9 @@ const Navbar = () => {
                     <DropdownMenuItem key={link.href} asChild>
                       <Link
                         href={link.href}
+                        aria-current={
+                          isLinkActive(link.href) ? "page" : undefined
+                        }
                         className="flex w-full items-center px-2 py-1.5"
                       >
                         {link.label}
@@ -166,7 +174,7 @@ const Navbar = () => {
           </div>
         </Container>
       </nav>
-      <CommandMenu open={openCmd} setOpen={setOpenCmd} />
+      {openCmd ? <CommandMenu open={openCmd} setOpen={setOpenCmd} /> : null}
     </>
   );
 };

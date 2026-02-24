@@ -48,7 +48,7 @@ export default function TechStack() {
             srcDark="/tech/prisma-light.svg"
           />
           <TechIcon label="Supabase" src="/tech/supabase.svg" />
-          <TechIcon label="Redix" src="/tech/redis.svg" />
+          <TechIcon label="Redis" src="/tech/redis.svg" />
           <TechIcon label="Firebase" src="/tech/firebase.svg" />
           <TechIcon label="Redux" src="/tech/redux.svg" />
           <TechIcon

@@ -15,6 +15,7 @@ const Kbd = React.forwardRef<HTMLElement, React.HTMLAttributes<HTMLElement>>(
     );
   }
 );
+Kbd.displayName = "Kbd";
 
 function KbdGroup({ className, ...props }: React.ComponentProps<"div">) {
   return (

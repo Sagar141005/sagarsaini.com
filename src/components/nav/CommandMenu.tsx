@@ -145,7 +145,9 @@ export const CommandMenu = ({
     (item: CommandItemConfig) => {
       setOpen(false);
       if (item.kind === "page" && item.href) router.push(item.href);
-      if (item.kind === "link" && item.href) window.open(item.href, "_blank");
+      if (item.kind === "link" && item.href) {
+        window.open(item.href, "_blank", "noopener,noreferrer");
+      }
       if (item.kind === "command" && item.action) item.action();
     },
     [router, setOpen]

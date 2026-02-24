@@ -1,7 +1,6 @@
 "use client";
 
 import React, { useEffect, useState } from "react";
-import Cal, { getCalApi } from "@calcom/embed-react";
 import { motion } from "motion/react";
 import {
   Dialog,
@@ -13,6 +12,9 @@ import {
 import BookCallButton from "../button/CallToAction";
 import { useTheme } from "next-themes";
 import { itemVariants } from "@/lib/motionVariants";
+import dynamic from "next/dynamic";
+
+const Cal = dynamic(() => import("@calcom/embed-react"), { ssr: false });
 
 export default function ContactCTA() {
   const [showCal, setShowCal] = useState(false);
@@ -23,6 +25,7 @@ export default function ContactCTA() {
 
     const initCal = async () => {
       try {
+        const { getCalApi } = await import("@calcom/embed-react");
         const calApi = await getCalApi();
         if (calApi) {
           calApi("ui", {
@@ -32,7 +35,7 @@ export default function ContactCTA() {
 
           calApi("on", {
             action: "bookingSuccessful",
-            callback: (e) => {
+            callback: () => {
               setTimeout(() => setShowCal(false), 1000);
             },
           });
@@ -68,8 +71,8 @@ export default function ContactCTA() {
                 variants={itemVariants}
                 className="text-muted-foreground text-sm md:text-base leading-relaxed font-light"
               >
-                I'm currently available for new projects. Let's discuss how we
-                can work together.
+                I&apos;m currently available for new projects. Let&apos;s discuss
+                how we can work together.
               </motion.p>
             </div>
 
@@ -93,11 +96,12 @@ export default function ContactCTA() {
           <div className="max-h-[calc(90vh-220px)] bg-background overflow-y-auto">
             <Cal
               calLink={process.env.NEXT_PUBLIC_CAL_LINK!}
-              className="h-[500px] w-full rounded-lg"
+              className="w-full rounded-lg"
               config={{
                 layout: "month_view",
                 theme: "auto",
               }}
+              style={{ height: "min(70vh, 500px)", width: "100%" }}
             />
           </div>
         </DialogContent>
