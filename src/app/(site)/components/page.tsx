@@ -4,14 +4,14 @@ import ComponentsPageClient from "@/components/showcase/ComponentsPageClient";
 export const metadata: Metadata = {
   title: "Components",
   description:
-    "Reusable UI components, hooks, and frontend utilities used across Sagar Saini's projects.",
+    "Reusable components and frontend utilities I use in real product work.",
   alternates: {
     canonical: "/components",
   },
   openGraph: {
     title: "Components | Sagar Saini",
     description:
-      "Reusable UI components, hooks, and frontend utilities used across projects.",
+      "A practical library of UI building blocks, interaction patterns, and developer-friendly snippets.",
     url: "/components",
     type: "website",
   },

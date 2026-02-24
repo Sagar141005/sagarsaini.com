@@ -11,14 +11,14 @@ import { ProjectPreview } from "@/types/project";
 export const metadata: Metadata = {
   title: "Projects",
   description:
-    "Case studies and production-ready applications built with Next.js, TypeScript, realtime systems, and AI integrations.",
+    "Selected projects I designed and built end-to-end, with a focus on product quality, performance, and real-world use.",
   alternates: {
     canonical: "/projects",
   },
   openGraph: {
     title: "Projects | Sagar Saini",
     description:
-      "Case studies and production-ready applications spanning realtime collaboration and AI-powered experiences.",
+      "A closer look at the products I’ve shipped, including decisions, tradeoffs, and technical execution.",
     url: "/projects",
     type: "website",
   },

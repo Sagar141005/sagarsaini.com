@@ -7,14 +7,14 @@ import ContactForm from "@/components/contact/ContactForm";
 export const metadata: Metadata = {
   title: "Contact",
   description:
-    "Get in touch with Sagar Saini for freelance work, collaborations, or full-time opportunities.",
+    "Hiring, collaboration, or freelance inquiry? Reach out and I’ll get back to you directly.",
   alternates: {
     canonical: "/contact",
   },
   openGraph: {
     title: "Contact | Sagar Saini",
     description:
-      "Get in touch for freelance work, collaborations, or full-time opportunities.",
+      "Let’s talk about roles, projects, or partnerships.",
     url: "/contact",
     type: "website",
   },

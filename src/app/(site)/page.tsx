@@ -15,14 +15,14 @@ import type { Metadata } from "next";
 export const metadata: Metadata = {
   title: "Sagar Saini — Full-Stack Developer",
   description:
-    "Portfolio of Sagar Saini — Full-Stack Developer building real-time collaboration tools, AI-powered apps, and modern web experiences.",
+    "Full-stack portfolio of Sagar Saini. I build fast, reliable web products with strong UX, realtime interactions, and practical AI.",
   alternates: {
     canonical: "/",
   },
   openGraph: {
     title: "Sagar Saini — Full-Stack Developer",
     description:
-      "Crafting high-performance, real-time and AI-powered web applications.",
+      "Built by Sagar Saini: product-focused web engineering from frontend polish to backend systems.",
     url: "/",
   },
 };

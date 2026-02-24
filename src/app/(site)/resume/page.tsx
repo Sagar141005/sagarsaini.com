@@ -8,14 +8,14 @@ import DownloadIcon from "@/components/svg/DownloadIcon";
 export const metadata: Metadata = {
   title: "Resume",
   description:
-    "Resume and professional overview of Sagar Saini, including technical skills and project experience.",
+    "My resume in one place: experience, skills, and the kind of work I’ve done recently.",
   alternates: {
     canonical: "/resume",
   },
   openGraph: {
     title: "Resume | Sagar Saini",
     description:
-      "Resume and professional overview, including technical skills and project experience.",
+      "A concise overview of my background, technical strengths, and project outcomes.",
     url: "/resume",
     type: "website",
   },

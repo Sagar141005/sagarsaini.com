@@ -9,7 +9,7 @@ export const metadata: Metadata = {
     template: "%s | Sagar Saini",
   },
   description:
-    "Portfolio of Sagar Saini — Full-Stack Developer building real-time collaboration tools, AI-powered apps, and modern web experiences.",
+    "I’m Sagar Saini, a full-stack developer building thoughtful web products with clean UX, realtime features, and practical AI.",
   keywords: [
     "Sagar Saini",
     "Full Stack Developer",
@@ -30,7 +30,7 @@ export const metadata: Metadata = {
     url: "https://sagarsaini.com",
     title: "Sagar Saini — Full-Stack Developer",
     description:
-      "Crafting high-performance, real-time and AI-powered web applications.",
+      "Full-stack developer shipping polished web products with strong frontend craft and solid backend architecture.",
     siteName: "Sagar Saini Portfolio",
     images: [
       {
@@ -46,7 +46,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Sagar Saini — Full-Stack Developer",
     description:
-      "Crafting high-performance, real-time and AI-powered web applications.",
+      "I build and ship modern web products end-to-end, from UI details to backend systems.",
     creator: "@not_sagar1410",
     images: ["/og-image.png"],
   },

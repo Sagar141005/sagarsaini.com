@@ -7,14 +7,14 @@ import { getBlogPosts } from "@/lib/blog";
 export const metadata: Metadata = {
   title: "Blog",
   description:
-    "Engineering notes and practical write-ups on frontend architecture, full-stack systems, and AI workflows.",
+    "Notes from real projects: what worked, what broke, and what I’d improve next time.",
   alternates: {
     canonical: "/blog",
   },
   openGraph: {
     title: "Blog | Sagar Saini",
     description:
-      "Engineering notes and practical write-ups on frontend architecture, full-stack systems, and AI workflows.",
+      "Practical engineering writing on frontend, full-stack systems, and product-minded development.",
     url: "/blog",
     type: "website",
   },
