@@ -64,7 +64,7 @@ export default function ComponentsPageClient() {
           </div>
         </div>
 
-        <motion.div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           {filteredItems.map((item) => (
             <ComponentCard
               key={item.slug}
@@ -72,7 +72,7 @@ export default function ComponentsPageClient() {
               onClick={(clickedItem) => setSelectedItem(clickedItem)}
             />
           ))}
-        </motion.div>
+        </div>
       </div>
 
       <ComponentDrawer

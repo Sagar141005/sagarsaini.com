@@ -1,7 +1,7 @@
 "use client";
 
 import React from "react";
-import { motion } from "motion/react";
+import { motion, useReducedMotion } from "motion/react";
 import { ComponentItem } from "@/data/components";
 import { Button } from "@/components/ui/button";
 import CodeIcon from "../svg/CodeIcon";
@@ -14,13 +14,16 @@ interface CardProps {
 
 export default function ComponentCard({ item, onClick }: CardProps) {
   const isCodeOnly = item.category === "Hook" || item.category === "Function";
+  const shouldReduceMotion = useReducedMotion();
 
   return (
     <motion.div
-      initial={{ opacity: 0, scale: 0.9 }}
-      animate={{ opacity: 1, scale: 1 }}
-      exit={{ opacity: 0, scale: 0.9 }}
-      className="group flex flex-col gap-3 w-full border border-border border-dashed rounded-2xl bg-card transition-all"
+      layout
+      initial={shouldReduceMotion ? false : { opacity: 0, y: 8, scale: 0.985 }}
+      animate={shouldReduceMotion ? undefined : { opacity: 1, y: 0, scale: 1 }}
+      exit={shouldReduceMotion ? undefined : { opacity: 0, y: 6, scale: 0.99 }}
+      transition={{ duration: 0.22, ease: [0.22, 1, 0.36, 1] }}
+      className="group flex flex-col gap-3 w-full border border-border border-dashed rounded-2xl bg-card transition-colors transform-gpu will-change-transform"
     >
       <div className="relative w-full p-2 h-52">
         <div className="relative h-full w-full overflow-hidden rounded-lg border border-border bg-muted/30 flex items-center justify-center cursor-pointer">
