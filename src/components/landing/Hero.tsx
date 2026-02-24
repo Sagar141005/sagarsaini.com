@@ -142,9 +142,10 @@ export default function Hero() {
           ))}
           . Focused on{" "}
           <span className="font-medium text-foreground">performance</span> and
-          user experience. Exploring{" "}
-          <span className="font-medium text-foreground">AI</span> to build
-          smarter solutions.
+          user experience. Exploring AI to build &nbsp;
+          <span className="font-medium text-foreground">
+            smarter solutions.
+          </span>
         </div>
       </div>
 
