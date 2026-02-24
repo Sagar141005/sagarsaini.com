@@ -29,9 +29,13 @@ export async function generateMetadata({
   return {
     title: post.metadata.title,
     description: post.metadata.description,
+    alternates: {
+      canonical: `/blog/${slug}`,
+    },
     openGraph: {
       title: post.metadata.title,
       description: post.metadata.description,
+      url: `/blog/${slug}`,
       type: "article",
       publishedTime: post.metadata.date,
       images: [post.metadata.image],
@@ -90,6 +94,7 @@ export default async function BlogPostPage({
                 src={post.metadata.image}
                 alt={post.metadata.title}
                 fill
+                sizes="(max-width: 768px) 100vw, 768px"
                 className="object-cover"
                 priority
               />

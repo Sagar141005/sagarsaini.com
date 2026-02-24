@@ -1,8 +1,25 @@
 import React from "react";
+import type { Metadata } from "next";
 import Container from "@/components/common/Container";
 import ContentHeader from "@/components/common/ContentHeader";
 import { Button } from "@/components/ui/button";
 import DownloadIcon from "@/components/svg/DownloadIcon";
+
+export const metadata: Metadata = {
+  title: "Resume",
+  description:
+    "Resume and professional overview of Sagar Saini, including technical skills and project experience.",
+  alternates: {
+    canonical: "/resume",
+  },
+  openGraph: {
+    title: "Resume | Sagar Saini",
+    description:
+      "Resume and professional overview, including technical skills and project experience.",
+    url: "/resume",
+    type: "website",
+  },
+};
 
 export default function ResumePage() {
   return (
@@ -13,6 +30,7 @@ export default function ResumePage() {
             heading="Resume"
             subHeading="An overview of my qualifications and skills."
             size="lg"
+            as="h1"
           />
 
           <Button

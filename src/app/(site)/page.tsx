@@ -1,5 +1,5 @@
 import BlogList from "@/components/blog/BlogList";
-import ContactSection from "@/components/landing/ContactSection";
+import LazyContactSection from "@/components/landing/LazyContactSection";
 import ProjectList from "@/components/project/ProjectList";
 import TechStack from "@/components/landing/TechStack";
 import Hero from "@/components/landing/Hero";
@@ -10,6 +10,22 @@ import ContentHeader from "@/components/common/ContentHeader";
 import { getBlogPosts } from "@/lib/blog";
 import { getProjects } from "@/lib/projects";
 import { ProjectPreview } from "@/types/project";
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Sagar Saini — Full-Stack Developer",
+  description:
+    "Portfolio of Sagar Saini — Full-Stack Developer building real-time collaboration tools, AI-powered apps, and modern web experiences.",
+  alternates: {
+    canonical: "/",
+  },
+  openGraph: {
+    title: "Sagar Saini — Full-Stack Developer",
+    description:
+      "Crafting high-performance, real-time and AI-powered web applications.",
+    url: "/",
+  },
+};
 
 export default function Home() {
   const posts = getBlogPosts();
@@ -58,7 +74,7 @@ export default function Home() {
       </div>
 
       {/* Contact */}
-      <ContactSection />
+      <LazyContactSection />
     </Container>
   );
 }
