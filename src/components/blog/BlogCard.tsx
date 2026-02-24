@@ -28,6 +28,8 @@ export default function BlogCard({ post }: { post: BlogPreview }) {
           alt={post.title}
           width={1200}
           height={630}
+          sizes="(max-width: 640px) calc(100vw - 2rem), (max-width: 1024px) 50vw, 380px"
+          quality={72}
           className="aspect-[16/9] object-cover transition-transform duration-300 group-hover:scale-[1.05]"
         />
 

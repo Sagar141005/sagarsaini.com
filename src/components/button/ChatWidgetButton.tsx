@@ -1,7 +1,7 @@
 "use client";
 
 import { useRef } from "react";
-import { AnimatePresence, motion } from "motion/react";
+import { AnimatePresence, motion, useReducedMotion } from "motion/react";
 import { X } from "lucide-react";
 import { cn } from "@/lib/utils";
 import ChatBotIcon, { ChatBotIconHandle } from "../svg/animated/ChatBotIcon";
@@ -16,6 +16,7 @@ export default function ChatWidgetButton({
   isOpen,
 }: ChatWidgetButtonProps) {
   const iconRef = useRef<ChatBotIconHandle>(null);
+  const shouldReduceMotion = useReducedMotion();
 
   const handleClick = () => {
     if (!isOpen) {
@@ -33,7 +34,7 @@ export default function ChatWidgetButton({
         "hover:scale-105 active:scale-95"
       )}
       aria-label={isOpen ? "Close Chat" : "Open Chat"}
-      whileTap={{ scale: 0.95 }}
+      whileTap={shouldReduceMotion ? undefined : { scale: 0.95 }}
     >
       <AnimatePresence mode="wait" initial={false}>
         {isOpen ? (

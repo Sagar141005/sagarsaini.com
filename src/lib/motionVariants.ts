@@ -23,11 +23,10 @@ export const cardVariants = {
 };
 
 export const itemVariants = {
-  hidden: { opacity: 0, y: 20, filter: "blur(5px)" },
+  hidden: { opacity: 0, y: 20 },
   visible: {
     opacity: 1,
     y: 0,
-    filter: "blur(0px)",
     transition: { duration: 0.5, ease: "easeOut" as const },
   },
 };

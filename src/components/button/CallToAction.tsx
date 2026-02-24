@@ -33,8 +33,9 @@ export default function BookCallButton({ onClick }: { onClick: () => void }) {
             <Image
               width={100}
               height={100}
-              src="/Profile.png"
+              src="/Profile-256.webp"
               alt="Me"
+              sizes="32px"
               className="h-full w-full rounded-full object-cover"
             />
           </div>

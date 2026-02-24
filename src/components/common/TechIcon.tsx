@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useEffect, useState } from "react";
+import React from "react";
 import Image from "next/image";
 import {
   Tooltip,
@@ -10,7 +10,6 @@ import {
 } from "@/components/ui/tooltip";
 import { cn } from "@/lib/utils";
 import { TooltipArrow } from "@radix-ui/react-tooltip";
-import { useTheme } from "next-themes";
 
 interface TechIconProps {
   label: string;
@@ -29,17 +28,7 @@ const TechIcon: React.FC<TechIconProps> = ({
   className = "w-8 h-8",
   priority,
 }) => {
-  const { resolvedTheme } = useTheme();
-  const [mounted, setMounted] = useState(false);
-
-  useEffect(() => {
-    setMounted(true);
-  }, []);
-
-  if (!mounted || !resolvedTheme) return null;
-
-  const finalSrc = src ?? (resolvedTheme === "dark" ? srcDark : srcLight);
-  if (!finalSrc) return null;
+  if (!src && !srcLight && !srcDark) return null;
 
   return (
     <TooltipProvider delayDuration={100}>
@@ -51,14 +40,38 @@ const TechIcon: React.FC<TechIconProps> = ({
               className
             )}
           >
-            <Image
-              key={finalSrc}
-              src={finalSrc}
-              alt={label}
-              fill
-              priority={priority}
-              className="object-contain"
-            />
+            {src && (
+              <Image
+                src={src}
+                alt={label}
+                fill
+                sizes="32px"
+                priority={priority}
+                className="object-contain"
+              />
+            )}
+
+            {!src && srcLight && (
+              <Image
+                src={srcLight}
+                alt={label}
+                fill
+                sizes="32px"
+                priority={priority}
+                className={cn("object-contain", srcDark && "dark:hidden")}
+              />
+            )}
+
+            {!src && srcDark && (
+              <Image
+                src={srcDark}
+                alt={label}
+                fill
+                sizes="32px"
+                priority={priority}
+                className="hidden object-contain dark:block"
+              />
+            )}
           </div>
         </TooltipTrigger>
 

@@ -2,8 +2,6 @@
 
 import React from "react";
 import ContentHeader from "../common/ContentHeader";
-import { motion } from "motion/react";
-import { cardVariants, staggerContainer } from "@/lib/motionVariants";
 import { ProjectStatus, UpcomingProjectItem } from "@/types/project";
 
 const STATUS_STYLES: Record<ProjectStatus, string> = {
@@ -27,17 +25,10 @@ export default function UpcomingProjects({ projects }: UpcomingProjectsProps) {
         subHeading="Ideas and experiments I’m currently working on."
       />
 
-      <motion.div
-        className="grid grid-cols-1 sm:grid-cols-2 gap-8"
-        initial="hidden"
-        whileInView="visible"
-        viewport={{ once: true }}
-        variants={staggerContainer}
-      >
+      <div className="grid grid-cols-1 sm:grid-cols-2 gap-8">
         {projects.map((project, index) => (
-          <motion.div
+          <div
             key={index}
-            variants={cardVariants}
             className="group relative flex flex-col justify-between rounded-2xl border border-border border-dashed p-4 bg-card transition-colors"
           >
             <div className="absolute inset-0 bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-[size:24px_24px] [mask-image:radial-gradient(ellipse_at_top_right,black_0%,transparent_100%)] pointer-events-none opacity-50" />
@@ -62,9 +53,9 @@ export default function UpcomingProjects({ projects }: UpcomingProjectsProps) {
                 {project.description}
               </p>
             </div>
-          </motion.div>
+          </div>
         ))}
-      </motion.div>
+      </div>
     </div>
   );
 }

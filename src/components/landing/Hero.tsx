@@ -1,11 +1,11 @@
 "use client";
 
-import { motion } from "motion/react";
 import Link from "next/link";
 import SkillBadge from "../common/SkillBadge";
 import { ArrowButton } from "../button/ArrowButton";
 import { ResumeButton } from "../button/ResumeButton";
 import Image from "next/image";
+import { motion } from "motion/react";
 import { itemVariants } from "@/lib/motionVariants";
 
 const skills = [
@@ -48,16 +48,21 @@ export default function Hero() {
     <section id="about">
       <motion.div
         className="flex items-center gap-6 sm:gap-8 py-8 flex-wrap sm:flex-nowrap scroll-mt-24"
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true }}
         variants={itemVariants}
       >
         <div className="relative group shrink-0">
           <div className="relative overflow-hidden rounded-full ring-1 ring-border p-1 bg-background">
             <Image
-              width={100}
-              height={100}
-              loading="lazy"
-              src="/Profile.png"
+              width={128}
+              height={128}
+              src="/Profile-256.webp"
               alt="Sagar Saini"
+              priority
+              fetchPriority="high"
+              sizes="(max-width: 640px) 96px, 128px"
               className="relative size-24 sm:size-32 rounded-full object-cover select-none"
             />
           </div>
@@ -103,10 +108,11 @@ export default function Hero() {
                 className="relative block"
               >
                 <Image
-                  width={100}
-                  height={100}
+                  width={24}
+                  height={24}
                   src={social.src}
                   alt={social.alt}
+                  sizes="(max-width: 640px) 20px, 24px"
                   className="size-5 sm:size-6 object-contain filter opacity-60 hover:opacity-100 transition-all duration-300"
                 />
               </motion.a>
@@ -115,13 +121,19 @@ export default function Hero() {
         </div>
       </motion.div>
 
-      <motion.div className="mt-8 space-y-4" variants={itemVariants}>
-        <h1 className="text-3xl sm:text-4xl font-bold text-foreground leading-tight">
+      <div className="mt-8 space-y-4">
+        <motion.h2
+          className="text-3xl sm:text-4xl font-bold text-foreground leading-tight"
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+          variants={itemVariants}
+        >
           Full Stack Developer —{" "}
           <span className="text-secondary">
             building scalable web solutions.
           </span>
-        </h1>
+        </motion.h2>
 
         <div className="text-md sm:text-lg font-light leading-relaxed text-muted-foreground">
           I build scalable web apps with{" "}
@@ -134,10 +146,13 @@ export default function Hero() {
           <span className="font-medium text-foreground">AI</span> to build
           smarter solutions.
         </div>
-      </motion.div>
+      </div>
 
       <motion.div
         className="flex items-center gap-4 py-8"
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true }}
         variants={itemVariants}
       >
         <Link href="/contact">

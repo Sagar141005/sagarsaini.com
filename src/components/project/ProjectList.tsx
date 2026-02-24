@@ -6,9 +6,7 @@ import ProjectCard from "@/components/project/ProjectCard";
 import TechIcon from "../common/TechIcon";
 import { TECH_ICONS } from "@/data/techMap";
 import { Button } from "../ui/button";
-import { motion } from "motion/react";
 import ChevronRightIcon from "../svg/ChevronRightIcon";
-import { cardVariants, staggerContainer } from "@/lib/motionVariants";
 import { ProjectPreview } from "@/types/project";
 
 interface ProjectListProps {
@@ -25,15 +23,9 @@ export default function ProjectList({
 
   return (
     <section id="projects">
-      <motion.div
-        className="grid grid-cols-1 sm:grid-cols-2 gap-8"
-        initial="hidden"
-        whileInView="visible"
-        viewport={{ once: true }}
-        variants={staggerContainer}
-      >
+      <div className="grid grid-cols-1 sm:grid-cols-2 gap-8">
         {visibleProjects.map((project) => (
-          <motion.div key={project.slug} variants={cardVariants}>
+          <div key={project.slug}>
             <ProjectCard
               title={project.title}
               description={project.description}
@@ -58,9 +50,9 @@ export default function ProjectList({
               })}
               links={project.links}
             />
-          </motion.div>
+          </div>
         ))}
-      </motion.div>
+      </div>
 
       {hasMoreProjects && (
         <div className="flex justify-center mt-8">

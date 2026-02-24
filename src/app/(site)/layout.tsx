@@ -1,6 +1,6 @@
 import Navbar from "@/components/common/Navbar";
 import Footer from "@/components/common/Footer";
-import ChatWidget from "@/components/common/ChatWidget";
+import LazyChatWidget from "@/components/common/LazyChatWidget";
 
 export default function SiteLayout({
   children,
@@ -10,8 +10,10 @@ export default function SiteLayout({
   return (
     <>
       <Navbar />
-      <main className="pt-16">{children}</main>
-      <ChatWidget />
+      <main id="main-content" className="pt-16">
+        {children}
+      </main>
+      <LazyChatWidget />
       <Footer />
     </>
   );
