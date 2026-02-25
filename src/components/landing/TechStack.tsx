@@ -68,8 +68,8 @@ export default function TechStack() {
           />
           <TechIcon
             label="Render"
-            srcLight="/tech/render-dark.svg"
-            srcDark="/tech/render-light.svg"
+            srcLight="/tech/render-light.svg"
+            srcDark="/tech/render-dark.svg"
           />
 
           <TechIcon
