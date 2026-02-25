@@ -11,7 +11,7 @@ const cspDirectives = [
   "img-src 'self' data: blob: https:",
   "font-src 'self' data:",
   "connect-src 'self' https://cal.com https://app.cal.com https://api.cal.com",
-  "frame-src 'self' https://cal.com https://app.cal.com",
+  "frame-src 'self' https://cal.com https://app.cal.com https://drive.google.com https://docs.google.com",
   "media-src 'self' blob:",
 ].join("; ");
 
