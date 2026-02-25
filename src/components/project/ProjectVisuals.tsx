@@ -55,7 +55,9 @@ export default function ProjectVisuals({
                 autoPlay
                 loop
                 controls
+                muted
                 playsInline
+                preload="metadata"
                 className="h-full w-full object-contain"
               />
             </div>

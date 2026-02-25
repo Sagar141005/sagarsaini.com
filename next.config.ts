@@ -12,7 +12,7 @@ const cspDirectives = [
   "font-src 'self' data:",
   "connect-src 'self' https://cal.com https://app.cal.com https://api.cal.com",
   "frame-src 'self' https://cal.com https://app.cal.com https://drive.google.com https://docs.google.com",
-  "media-src 'self' blob:",
+  "media-src 'self' blob: https://res.cloudinary.com",
 ].join("; ");
 
 const nextConfig: NextConfig = {
