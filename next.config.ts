@@ -17,6 +17,7 @@ const cspDirectives = [
 
 const nextConfig: NextConfig = {
   images: {
+    qualities: [70, 75],
     remotePatterns: [
       // Unsplash
       {
