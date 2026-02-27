@@ -20,10 +20,20 @@ export const metadata: Metadata = {
     canonical: "/",
   },
   openGraph: {
+    type: "website",
     title: "Sagar Saini — Full-Stack Developer",
     description:
       "Built by Sagar Saini: product-focused web engineering from frontend polish to backend systems.",
     url: "/",
+    siteName: "Sagar Saini Portfolio",
+    images: [
+      {
+        url: "/og-image.png",
+        width: 1200,
+        height: 630,
+        alt: "Sagar Saini Portfolio",
+      },
+    ],
   },
 };
 
